@@ -2,680 +2,1382 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <meta
+        name="description"
+        content="Contact Yeasir Arafat — Multimedia Journalist, Reporter and Entrepreneur."
+    >
+
     <title>Contact | Yeasir Arafat</title>
-    <meta name="description" content="Contact Yeasir Arafat — Multimedia Journalist, Reporter and Entrepreneur.">
+
+    <!-- EXISTING WEBSITE CSS -->
+    <link rel="stylesheet" href="style.css">
 
     <!-- Google Font -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
+        rel="stylesheet"
+    >
 
     <style>
-        /* =====================================================
-           YEASIR ARAFAT — PREMIUM CONTACT PAGE
-        ===================================================== */
-
-        :root {
-            --bg: #070707;
-            --bg-soft: #0d0d0d;
-            --card: rgba(255,255,255,0.045);
-            --border: rgba(255,255,255,0.10);
-            --gold: #d6ad52;
-            --gold-light: #f2d58a;
-            --white: #f5f5f5;
-            --muted: #9a9a9a;
-            --dark: #111;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
-            font-family: "DM Sans", sans-serif;
-            background:
-                radial-gradient(circle at 85% 15%, rgba(214,173,82,.10), transparent 28%),
-                radial-gradient(circle at 10% 80%, rgba(214,173,82,.055), transparent 25%),
-                var(--bg);
-            color: var(--white);
-            min-height: 100vh;
-            overflow-x: hidden;
-        }
-
-        a {
-            color: inherit;
-            text-decoration: none;
-        }
 
         /* =====================================================
-           BACKGROUND
-        ===================================================== */
-
-        .bg-grid {
-            position: fixed;
-            inset: 0;
-            pointer-events: none;
-            opacity: .035;
-            background-image:
-                linear-gradient(rgba(255,255,255,.5) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(255,255,255,.5) 1px, transparent 1px);
-            background-size: 70px 70px;
-            mask-image: linear-gradient(to bottom, black, transparent);
-            z-index: 0;
-        }
-
-        .glow {
-            position: fixed;
-            width: 450px;
-            height: 450px;
-            border-radius: 50%;
-            background: rgba(214,173,82,.07);
-            filter: blur(100px);
-            pointer-events: none;
-            z-index: 0;
-        }
-
-        .glow.one {
-            top: -180px;
-            right: -100px;
-        }
-
-        .glow.two {
-            bottom: -220px;
-            left: -120px;
-        }
-
-        /* =====================================================
-           NAVBAR
-        ===================================================== */
-
-        .navbar {
-            position: relative;
-            z-index: 10;
-            width: min(1180px, 92%);
-            margin: auto;
-            padding: 28px 0;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .brand {
-            font-family: "Playfair Display", serif;
-            font-size: 25px;
-            font-weight: 700;
-            letter-spacing: .5px;
-        }
-
-        .brand span {
-            color: var(--gold);
-        }
-
-        .nav-links {
-            display: flex;
-            align-items: center;
-            gap: 34px;
-        }
-
-        .nav-links a {
-            color: #aaa;
-            font-size: 13px;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-            position: relative;
-            transition: .3s ease;
-        }
-
-        .nav-links a::after {
-            content: "";
-            position: absolute;
-            left: 0;
-            bottom: -8px;
-            width: 0;
-            height: 1px;
-            background: var(--gold);
-            transition: .3s ease;
-        }
-
-        .nav-links a:hover,
-        .nav-links a.active {
-            color: white;
-        }
-
-        .nav-links a:hover::after,
-        .nav-links a.active::after {
-            width: 100%;
-        }
-
-        /* =====================================================
-           HERO
+           CONTACT PAGE — YEASIR ARAFAT
+           Uses the existing website theme
         ===================================================== */
 
         .contact-page {
-            position: relative;
-            z-index: 2;
-            width: min(1180px, 92%);
-            margin: auto;
-            padding: 80px 0 100px;
+            background: #06111f;
+            color: #ffffff;
         }
 
-        .eyebrow {
+
+        /* =====================================================
+           CONTACT HERO
+        ===================================================== */
+
+        .contact-hero {
+            position: relative;
+
+            min-height: 72vh;
+
             display: flex;
             align-items: center;
-            gap: 12px;
-            color: var(--gold);
-            font-size: 11px;
-            letter-spacing: 3px;
-            text-transform: uppercase;
-            font-weight: 700;
-            margin-bottom: 20px;
+
+            overflow: hidden;
+
+            background:
+                radial-gradient(
+                    circle at 75% 35%,
+                    rgba(33, 150, 243, 0.14),
+                    transparent 35%
+                ),
+                #030d19;
         }
 
-        .eyebrow::before {
+        .contact-hero::before {
             content: "";
-            width: 42px;
-            height: 1px;
-            background: var(--gold);
+
+            position: absolute;
+
+            width: 600px;
+            height: 600px;
+
+            right: -220px;
+            top: -220px;
+
+            border-radius: 50%;
+
+            border:
+                1px solid rgba(144, 202, 249, 0.08);
+
+            box-shadow:
+                0 0 100px rgba(33, 150, 243, 0.06);
         }
 
-        .hero-title {
-            font-family: "Playfair Display", serif;
-            font-size: clamp(55px, 8vw, 105px);
-            line-height: .92;
-            font-weight: 600;
-            letter-spacing: -4px;
-            max-width: 900px;
+        .contact-hero::after {
+            content: "";
+
+            position: absolute;
+
+            inset: 0;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    rgba(3, 13, 25, 0.98),
+                    rgba(3, 13, 25, 0.72),
+                    rgba(3, 13, 25, 0.92)
+                );
+
+            pointer-events: none;
         }
 
-        .hero-title span {
-            color: var(--gold);
+        .contact-hero-content {
+            position: relative;
+
+            z-index: 2;
+
+            width: 88%;
+            max-width: 1250px;
+
+            margin: auto;
+
+            padding-top: 90px;
         }
 
-        .hero-description {
+        .contact-kicker {
+            color: var(--light-blue);
+
+            font-size: 11px;
+
+            letter-spacing: 5px;
+
+            text-transform: uppercase;
+
+            margin-bottom: 22px;
+        }
+
+        .contact-hero h1 {
+            max-width: 950px;
+
+            font-size:
+                clamp(58px, 9vw, 125px);
+
+            line-height: 0.86;
+
+            font-weight: 900;
+
+            letter-spacing: -5px;
+
+            margin-bottom: 30px;
+        }
+
+        .contact-hero h1 span {
+            color: var(--light-blue);
+
+            text-shadow:
+                0 0 25px rgba(144, 202, 249, 0.22);
+        }
+
+        .contact-hero-line {
+            width: 85px;
+
+            height: 3px;
+
+            background: var(--blue);
+
+            box-shadow:
+                0 0 15px rgba(33, 150, 243, 0.7);
+
+            margin-bottom: 22px;
+        }
+
+        .contact-hero-description {
             max-width: 650px;
+
             color: var(--muted);
-            font-size: 16px;
+
+            font-size: 18px;
+
             line-height: 1.8;
-            margin-top: 28px;
         }
+
 
         /* =====================================================
-           MAIN GRID
+           CONTACT MAIN
         ===================================================== */
+
+        .contact-main {
+            padding: 110px 0;
+
+            background:
+                linear-gradient(
+                    180deg,
+                    #06111f,
+                    #071522
+                );
+        }
+
+        .contact-container {
+            width: 88%;
+
+            max-width: 1250px;
+
+            margin: auto;
+        }
 
         .contact-grid {
-            margin-top: 75px;
             display: grid;
-            grid-template-columns: .85fr 1.15fr;
-            gap: 24px;
+
+            grid-template-columns:
+                0.85fr
+                1.15fr;
+
+            gap: 70px;
+
+            align-items: stretch;
         }
+
 
         /* =====================================================
-           LEFT INFO
+           LEFT INFORMATION
         ===================================================== */
 
-        .info-panel,
-        .form-panel {
-            border: 1px solid var(--border);
-            background: linear-gradient(
-                145deg,
-                rgba(255,255,255,.055),
-                rgba(255,255,255,.018)
-            );
-            backdrop-filter: blur(18px);
-            -webkit-backdrop-filter: blur(18px);
-            border-radius: 24px;
+        .contact-info {
+            padding: 40px;
+
+            border:
+                1px solid var(--border);
+
+            background:
+                rgba(255, 255, 255, 0.025);
+
+            position: relative;
+
+            overflow: hidden;
         }
 
-        .info-panel {
-            padding: 38px;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            min-height: 550px;
+        .contact-info::before {
+            content: "";
+
+            position: absolute;
+
+            top: 0;
+            left: 0;
+
+            width: 100%;
+            height: 2px;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    transparent,
+                    var(--blue),
+                    transparent
+                );
+
+            box-shadow:
+                0 0 18px rgba(33, 150, 243, 0.7);
         }
 
-        .panel-label {
-            color: var(--gold);
+        .contact-info-kicker {
+            color: var(--light-blue);
+
             font-size: 10px;
-            font-weight: 700;
-            letter-spacing: 2.5px;
+
+            letter-spacing: 4px;
+
             text-transform: uppercase;
-            margin-bottom: 28px;
+
+            margin-bottom: 18px;
         }
 
-        .info-item {
-            display: flex;
-            gap: 18px;
-            padding: 22px 0;
-            border-bottom: 1px solid rgba(255,255,255,.075);
-        }
+        .contact-info h2 {
+            font-size:
+                clamp(38px, 4vw, 58px);
 
-        .info-item:last-child {
-            border-bottom: none;
-        }
+            line-height: 0.95;
 
-        .info-icon {
-            width: 42px;
-            height: 42px;
-            min-width: 42px;
-            border: 1px solid rgba(214,173,82,.35);
-            border-radius: 50%;
-            display: grid;
-            place-items: center;
-            color: var(--gold-light);
-            font-size: 17px;
-        }
+            letter-spacing: -2px;
 
-        .info-content small {
-            display: block;
-            color: #777;
-            font-size: 10px;
-            letter-spacing: 1.7px;
-            text-transform: uppercase;
-            margin-bottom: 7px;
-        }
-
-        .info-content a,
-        .info-content p {
-            font-size: 15px;
-            line-height: 1.6;
-            color: #e8e8e8;
-        }
-
-        .info-content a:hover {
-            color: var(--gold-light);
-        }
-
-        /* =====================================================
-           SOCIAL / PROFILE
-        ===================================================== */
-
-        .social-area {
-            margin-top: 35px;
-            padding-top: 25px;
-            border-top: 1px solid var(--border);
-        }
-
-        .social-title {
-            font-size: 10px;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            color: #777;
             margin-bottom: 15px;
         }
 
-        .social-link {
-            display: inline-flex;
-            align-items: center;
-            gap: 9px;
-            font-size: 13px;
-            color: #ccc;
-            transition: .3s;
+        .contact-info h2 span {
+            color: var(--light-blue);
         }
 
-        .social-link:hover {
-            color: var(--gold);
+        .contact-role {
+            color: var(--muted);
+
+            font-size: 14px;
+
+            line-height: 1.7;
+
+            margin-bottom: 35px;
         }
+
+
+        /* =====================================================
+           CONTACT DETAILS
+        ===================================================== */
+
+        .contact-details {
+            display: flex;
+
+            flex-direction: column;
+
+            gap: 22px;
+        }
+
+        .contact-detail {
+            display: grid;
+
+            grid-template-columns: 45px 1fr;
+
+            gap: 15px;
+
+            align-items: center;
+        }
+
+        .contact-icon {
+            width: 42px;
+            height: 42px;
+
+            display: flex;
+
+            align-items: center;
+            justify-content: center;
+
+            border:
+                1px solid rgba(144, 202, 249, 0.2);
+
+            background:
+                rgba(33, 150, 243, 0.06);
+
+            color: var(--light-blue);
+
+            font-size: 17px;
+
+            transition:
+                transform 0.3s ease,
+                border-color 0.3s ease,
+                background 0.3s ease;
+        }
+
+        .contact-detail:hover .contact-icon {
+            transform: translateY(-3px);
+
+            border-color:
+                rgba(144, 202, 249, 0.5);
+
+            background:
+                rgba(33, 150, 243, 0.12);
+        }
+
+        .contact-detail small {
+            display: block;
+
+            color: var(--soft);
+
+            font-size: 9px;
+
+            letter-spacing: 2px;
+
+            text-transform: uppercase;
+
+            margin-bottom: 5px;
+        }
+
+        .contact-detail a,
+        .contact-detail span {
+            color: #eaf5ff;
+
+            text-decoration: none;
+
+            font-size: 13px;
+
+            line-height: 1.5;
+
+            word-break: break-word;
+        }
+
+        .contact-detail a:hover {
+            color: var(--light-blue);
+        }
+
+
+        /* =====================================================
+           SOCIAL LINKS
+        ===================================================== */
+
+        .contact-socials {
+            display: flex;
+
+            flex-wrap: wrap;
+
+            gap: 10px;
+
+            margin-top: 38px;
+
+            padding-top: 25px;
+
+            border-top:
+                1px solid rgba(144, 202, 249, 0.1);
+        }
+
+        .contact-socials a {
+            display: inline-flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            min-width: 105px;
+
+            padding: 10px 14px;
+
+            color: #dcecff;
+
+            text-decoration: none;
+
+            font-size: 10px;
+
+            letter-spacing: 1px;
+
+            text-transform: uppercase;
+
+            border:
+                1px solid rgba(144, 202, 249, 0.18);
+
+            background:
+                rgba(255, 255, 255, 0.025);
+
+            transition:
+                transform 0.3s ease,
+                border-color 0.3s ease,
+                background 0.3s ease;
+        }
+
+        .contact-socials a:hover {
+            transform: translateY(-3px);
+
+            color: #ffffff;
+
+            border-color:
+                var(--blue);
+
+            background:
+                rgba(33, 150, 243, 0.08);
+        }
+
 
         /* =====================================================
            FORM
         ===================================================== */
 
-        .form-panel {
-            padding: 42px;
+        .contact-form-wrapper {
+            position: relative;
+
+            padding: 45px;
+
+            border:
+                1px solid var(--border);
+
+            background:
+                rgba(255, 255, 255, 0.025);
+
+            overflow: hidden;
         }
 
-        .form-heading {
-            font-family: "Playfair Display", serif;
-            font-size: 34px;
-            margin-bottom: 8px;
+        .contact-form-wrapper::before {
+            content: "";
+
+            position: absolute;
+
+            top: 0;
+            left: 0;
+
+            width: 100%;
+            height: 2px;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    var(--blue),
+                    transparent
+                );
+
+            box-shadow:
+                0 0 15px rgba(33, 150, 243, 0.5);
         }
 
-        .form-subtitle {
-            color: #777;
-            font-size: 13px;
-            line-height: 1.6;
+        .contact-form-heading {
             margin-bottom: 35px;
         }
 
+        .contact-form-heading span {
+            display: block;
+
+            color: var(--light-blue);
+
+            font-size: 10px;
+
+            letter-spacing: 4px;
+
+            text-transform: uppercase;
+
+            margin-bottom: 12px;
+        }
+
+        .contact-form-heading h2 {
+            font-size:
+                clamp(32px, 4vw, 48px);
+
+            line-height: 1;
+
+            letter-spacing: -1.5px;
+        }
+
+
+        /* =====================================================
+           FORM GROUP
+        ===================================================== */
+
         .form-row {
             display: grid;
-            grid-template-columns: 1fr 1fr;
+
+            grid-template-columns:
+                repeat(2, minmax(0, 1fr));
+
             gap: 18px;
         }
 
-        .field {
-            margin-bottom: 22px;
+        .form-group {
+            margin-bottom: 20px;
         }
 
-        .field label {
+        .form-group label {
             display: block;
-            color: #888;
+
+            color: #b9d3e7;
+
             font-size: 10px;
-            letter-spacing: 1.8px;
+
+            letter-spacing: 1.5px;
+
             text-transform: uppercase;
-            margin-bottom: 10px;
+
+            margin-bottom: 9px;
         }
 
-        .field input,
-        .field textarea,
-        .field select {
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
             width: 100%;
-            border: 1px solid rgba(255,255,255,.10);
-            outline: none;
-            background: rgba(0,0,0,.25);
-            color: white;
-            border-radius: 10px;
+
             padding: 15px 16px;
+
+            border:
+                1px solid rgba(144, 202, 249, 0.16);
+
+            outline: none;
+
+            color: #ffffff;
+
+            background:
+                rgba(3, 13, 25, 0.7);
+
             font-family: inherit;
-            font-size: 14px;
-            transition: .3s ease;
+
+            font-size: 13px;
+
+            transition:
+                border-color 0.3s ease,
+                box-shadow 0.3s ease,
+                background 0.3s ease;
         }
 
-        .field input::placeholder,
-        .field textarea::placeholder {
-            color: #555;
-        }
+        .form-group textarea {
+            min-height: 145px;
 
-        .field input:focus,
-        .field textarea:focus,
-        .field select:focus {
-            border-color: rgba(214,173,82,.65);
-            box-shadow: 0 0 0 3px rgba(214,173,82,.06);
-        }
-
-        .field textarea {
-            min-height: 155px;
             resize: vertical;
         }
 
-        .field select {
-            appearance: none;
+        .form-group input::placeholder,
+        .form-group textarea::placeholder {
+            color: #637c8d;
         }
 
-        .submit-btn {
-            width: 100%;
-            border: none;
-            border-radius: 10px;
-            padding: 16px 20px;
-            background: linear-gradient(135deg, var(--gold-light), var(--gold));
-            color: #080808;
-            font-family: inherit;
-            font-size: 12px;
-            font-weight: 800;
-            letter-spacing: 1.5px;
-            text-transform: uppercase;
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            border-color:
+                rgba(33, 150, 243, 0.75);
+
+            background:
+                rgba(3, 13, 25, 0.9);
+
+            box-shadow:
+                0 0 18px rgba(33, 150, 243, 0.08);
+        }
+
+        .form-group select {
             cursor: pointer;
-            transition: .3s ease;
         }
 
-        .submit-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 12px 35px rgba(214,173,82,.18);
+        .form-group select option {
+            background: #06111f;
+
+            color: #ffffff;
         }
+
 
         /* =====================================================
-           BOTTOM CTA
+           SEND BUTTON
         ===================================================== */
 
-        .bottom-cta {
-            margin-top: 25px;
-            border: 1px solid var(--border);
-            border-radius: 20px;
-            padding: 30px 35px;
-            display: flex;
+        .contact-submit {
+            display: inline-flex;
+
             align-items: center;
-            justify-content: space-between;
-            gap: 25px;
-            background: rgba(255,255,255,.025);
-        }
 
-        .bottom-cta h3 {
-            font-family: "Playfair Display", serif;
-            font-size: 25px;
-            font-weight: 500;
-        }
+            justify-content: center;
 
-        .bottom-cta p {
-            color: #777;
-            font-size: 13px;
-            margin-top: 7px;
-        }
-
-        .business-link {
-            white-space: nowrap;
-            padding: 12px 20px;
-            border: 1px solid rgba(214,173,82,.45);
-            border-radius: 8px;
-            color: var(--gold-light);
-            font-size: 11px;
-            font-weight: 700;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-            transition: .3s;
-        }
-
-        .business-link:hover {
-            background: var(--gold);
-            color: #111;
-        }
-
-        /* =====================================================
-           FOOTER
-        ===================================================== */
-
-        footer {
-            position: relative;
-            z-index: 2;
-            width: min(1180px, 92%);
-            margin: auto;
-            padding: 30px 0 40px;
-            border-top: 1px solid rgba(255,255,255,.07);
-            display: flex;
-            justify-content: space-between;
             gap: 20px;
-            color: #555;
+
+            min-width: 190px;
+
+            padding: 15px 25px;
+
+            border: none;
+
+            cursor: pointer;
+
+            color: #ffffff;
+
+            background:
+                var(--blue-dark);
+
             font-size: 11px;
+
+            font-weight: 700;
+
+            letter-spacing: 1.5px;
+
+            text-transform: uppercase;
+
+            box-shadow:
+                0 0 20px rgba(33, 150, 243, 0.18);
+
+            transition:
+                transform 0.3s ease,
+                background 0.3s ease,
+                box-shadow 0.3s ease;
         }
 
-        footer span {
-            color: var(--gold);
+        .contact-submit span {
+            color: var(--light-blue);
+
+            font-size: 17px;
         }
+
+        .contact-submit:hover {
+            transform: translateY(-4px);
+
+            background:
+                var(--blue);
+
+            box-shadow:
+                0 10px 30px rgba(33, 150, 243, 0.3);
+        }
+
 
         /* =====================================================
-           RESPONSIVE
+           PROFESSIONAL AREAS
         ===================================================== */
 
-        @media (max-width: 850px) {
+        .contact-areas {
+            padding: 110px 0;
 
-            .nav-links {
-                gap: 16px;
-            }
+            background:
+                #071522;
+        }
 
-            .nav-links a {
-                font-size: 10px;
-            }
+        .contact-section-heading {
+            margin-bottom: 50px;
+        }
 
-            .contact-page {
-                padding-top: 55px;
-            }
+        .contact-section-heading span {
+            display: block;
+
+            color: var(--light-blue);
+
+            font-size: 10px;
+
+            letter-spacing: 4px;
+
+            text-transform: uppercase;
+
+            margin-bottom: 15px;
+        }
+
+        .contact-section-heading h2 {
+            font-size:
+                clamp(40px, 5vw, 65px);
+
+            line-height: 0.95;
+
+            letter-spacing: -2px;
+        }
+
+        .contact-section-heading h2 span {
+            display: inline;
+
+            color: var(--light-blue);
+
+            font-size: inherit;
+
+            letter-spacing: inherit;
+
+            text-transform: none;
+        }
+
+        .areas-grid {
+            display: grid;
+
+            grid-template-columns:
+                repeat(4, minmax(0, 1fr));
+
+            gap: 15px;
+        }
+
+        .area-card {
+            min-height: 190px;
+
+            padding: 28px;
+
+            border:
+                1px solid var(--border);
+
+            background:
+                rgba(255, 255, 255, 0.025);
+
+            position: relative;
+
+            overflow: hidden;
+
+            transition:
+                transform 0.35s ease,
+                border-color 0.35s ease,
+                background 0.35s ease;
+        }
+
+        .area-card::after {
+            content: "";
+
+            position: absolute;
+
+            left: 0;
+            bottom: 0;
+
+            width: 100%;
+            height: 2px;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    var(--blue),
+                    transparent
+                );
+
+            transform:
+                scaleX(0);
+
+            transform-origin: left;
+
+            transition:
+                transform 0.35s ease;
+        }
+
+        .area-card:hover {
+            transform:
+                translateY(-7px);
+
+            border-color:
+                rgba(144, 202, 249, 0.35);
+
+            background:
+                rgba(33, 150, 243, 0.045);
+        }
+
+        .area-card:hover::after {
+            transform:
+                scaleX(1);
+        }
+
+        .area-number {
+            display: block;
+
+            color: var(--light-blue);
+
+            font-size: 10px;
+
+            letter-spacing: 2px;
+
+            margin-bottom: 45px;
+        }
+
+        .area-card h3 {
+            font-size: 19px;
+
+            line-height: 1.2;
+
+            margin-bottom: 10px;
+        }
+
+        .area-card p {
+            color: var(--muted);
+
+            font-size: 12px;
+
+            line-height: 1.6;
+        }
+
+
+        /* =====================================================
+           CONTACT STATEMENT
+        ===================================================== */
+
+        .contact-statement {
+            padding: 120px 0;
+
+            background:
+                radial-gradient(
+                    circle at 50% 0%,
+                    rgba(33, 150, 243, 0.12),
+                    transparent 45%
+                ),
+                #06111f;
+
+            text-align: center;
+        }
+
+        .contact-statement-inner {
+            width: 88%;
+
+            max-width: 900px;
+
+            margin: auto;
+        }
+
+        .contact-statement small {
+            color: var(--light-blue);
+
+            font-size: 10px;
+
+            letter-spacing: 4px;
+
+            text-transform: uppercase;
+        }
+
+        .contact-statement h2 {
+            margin:
+                25px auto 20px;
+
+            font-size:
+                clamp(36px, 5vw, 65px);
+
+            line-height: 1;
+
+            letter-spacing: -2px;
+        }
+
+        .contact-statement h2 span {
+            color: var(--light-blue);
+        }
+
+        .contact-statement p {
+            max-width: 650px;
+
+            margin: auto;
+
+            color: var(--muted);
+
+            font-size: 16px;
+
+            line-height: 1.8;
+        }
+
+
+        /* =====================================================
+           MOBILE
+        ===================================================== */
+
+        @media (max-width: 1000px) {
 
             .contact-grid {
                 grid-template-columns: 1fr;
+
+                gap: 30px;
             }
 
-            .info-panel {
-                min-height: auto;
+            .areas-grid {
+                grid-template-columns:
+                    repeat(2, minmax(0, 1fr));
             }
+
         }
 
-        @media (max-width: 600px) {
 
-            .navbar {
-                padding: 20px 0;
+        @media (max-width: 700px) {
+
+            .contact-hero {
+                min-height: 65vh;
             }
 
-            .brand {
-                font-size: 21px;
+            .contact-hero-content {
+                padding-top: 85px;
             }
 
-            .nav-links {
-                gap: 12px;
+            .contact-hero h1 {
+                font-size:
+                    clamp(55px, 15vw, 90px);
+
+                letter-spacing: -3px;
             }
 
-            .nav-links a:nth-child(1),
-            .nav-links a:nth-child(2),
-            .nav-links a:nth-child(3) {
-                display: none;
+            .contact-hero-description {
+                font-size: 15px;
             }
 
-            .hero-title {
-                font-size: 57px;
-                letter-spacing: -2.5px;
+            .contact-main,
+            .contact-areas {
+                padding: 80px 0;
             }
 
-            .hero-description {
-                font-size: 14px;
-            }
-
-            .contact-page {
-                padding-bottom: 60px;
-            }
-
-            .info-panel,
-            .form-panel {
-                padding: 25px;
-                border-radius: 18px;
+            .contact-info,
+            .contact-form-wrapper {
+                padding: 28px;
             }
 
             .form-row {
                 grid-template-columns: 1fr;
-                gap: 0;
             }
 
-            .form-heading {
-                font-size: 29px;
+            .areas-grid {
+                grid-template-columns: 1fr;
             }
 
-            .bottom-cta {
-                flex-direction: column;
-                align-items: flex-start;
-                padding: 25px;
+            .contact-submit {
+                width: 100%;
             }
 
-            footer {
-                flex-direction: column;
-            }
         }
+
+
+        @media (max-width: 500px) {
+
+            .contact-hero h1 {
+                font-size: 56px;
+
+                line-height: 0.9;
+            }
+
+            .contact-info h2 {
+                font-size: 40px;
+            }
+
+            .contact-form-heading h2 {
+                font-size: 34px;
+            }
+
+            .contact-detail {
+                grid-template-columns: 40px 1fr;
+            }
+
+            .contact-icon {
+                width: 38px;
+                height: 38px;
+            }
+
+            .contact-socials a {
+                flex: 1;
+                min-width: 0;
+            }
+
+            .contact-statement {
+                padding: 85px 0;
+            }
+
+        }
+
     </style>
 </head>
 
-<body>
 
-    <!-- Background -->
-    <div class="bg-grid"></div>
-    <div class="glow one"></div>
-    <div class="glow two"></div>
+<body class="contact-page">
+
 
     <!-- =====================================================
          NAVBAR
-    ====================================================== -->
+    ===================================================== -->
+
     <header class="navbar">
 
-        <a href="index.html" class="brand">
-            YEASIR<span>.</span>
-        </a>
+        <div class="nav-container">
 
-        <nav class="nav-links">
-            <a href="index.html">Home</a>
-            <a href="about.html">About</a>
-            <a href="portfolio.html">Portfolio</a>
-            <a href="contact.html" class="active">Contact</a>
-        </nav>
+            <a href="index.html" class="logo">
+                YEASIR <span>ARAFAT</span>
+            </a>
+
+
+            <nav class="nav-menu">
+
+                <a href="index.html">
+                    Home
+                </a>
+
+                <a href="about.html">
+                    About
+                </a>
+
+                <div class="nav-dropdown">
+
+                    <a href="portfolio.html" class="projects-link">
+                        Projects
+                    </a>
+
+                    <div class="projects-dropdown">
+
+                        <a href="projects/project-01.html">
+                            <strong>01</strong>
+                            <span>
+                                Research Proposal
+                                <small>
+                                    Communication Research
+                                </small>
+                            </span>
+                        </a>
+
+                        <a href="projects/project-02.html">
+                            <strong>02</strong>
+                            <span>
+                                Journalism Project
+                                <small>
+                                    Digital Journalism
+                                </small>
+                            </span>
+                        </a>
+
+                        <a href="projects/project-03.html">
+                            <strong>03</strong>
+                            <span>
+                                Multimedia Project
+                                <small>
+                                    Multimedia Journalism
+                                </small>
+                            </span>
+                        </a>
+
+                        <a href="projects/project-04.html">
+                            <strong>04</strong>
+                            <span>
+                                News Reporting
+                                <small>
+                                    Field Reporting
+                                </small>
+                            </span>
+                        </a>
+
+                        <a href="projects/project-05.html">
+                            <strong>05</strong>
+                            <span>
+                                Video Journalism
+                                <small>
+                                    News Production
+                                </small>
+                            </span>
+                        </a>
+
+                        <a href="projects/project-06.html">
+                            <strong>06</strong>
+                            <span>
+                                Digital Storytelling
+                                <small>
+                                    Digital Media
+                                </small>
+                            </span>
+                        </a>
+
+                        <a href="projects/project-07.html">
+                            <strong>07</strong>
+                            <span>
+                                Multimedia Production
+                                <small>
+                                    Content Production
+                                </small>
+                            </span>
+                        </a>
+
+                        <a href="projects/project-08.html">
+                            <strong>08</strong>
+                            <span>
+                                News Package
+                                <small>
+                                    Broadcast Journalism
+                                </small>
+                            </span>
+                        </a>
+
+                        <a href="projects/project-09.html">
+                            <strong>09</strong>
+                            <span>
+                                Video Project
+                                <small>
+                                    Digital Content
+                                </small>
+                            </span>
+                        </a>
+
+                        <a href="projects/project-10.html">
+                            <strong>10</strong>
+                            <span>
+                                Multimedia Story
+                                <small>
+                                    Journalism & Media
+                                </small>
+                            </span>
+                        </a>
+
+                        <a href="projects/project-11.html">
+                            <strong>11</strong>
+                            <span>
+                                Reporting Project
+                                <small>
+                                    News Reporting
+                                </small>
+                            </span>
+                        </a>
+
+                        <a href="projects/project-12.html">
+                            <strong>12</strong>
+                            <span>
+                                Digital Media Project
+                                <small>
+                                    Digital Journalism
+                                </small>
+                            </span>
+                        </a>
+
+                        <a href="projects/project-13.html">
+                            <strong>13</strong>
+                            <span>
+                                Multimedia Story
+                                <small>
+                                    Video Journalism
+                                </small>
+                            </span>
+                        </a>
+
+                        <a href="projects/project-14.html">
+                            <strong>14</strong>
+                            <span>
+                                Final Project
+                                <small>
+                                    Multimedia Journalism
+                                </small>
+                            </span>
+                        </a>
+
+                    </div>
+
+                </div>
+
+                <a href="business.html">
+                    Business
+                </a>
+
+                <a href="cv.html">
+                    CV
+                </a>
+
+                <a href="contact.html" class="active">
+                    Contact
+                </a>
+
+            </nav>
+
+
+            <div class="nav-search">
+
+                <span class="search-icon">
+                    ⌕
+                </span>
+
+                <input
+                    type="search"
+                    placeholder="Search..."
+                    aria-label="Search"
+                >
+
+            </div>
+
+
+            <button
+                class="menu-toggle"
+                type="button"
+                aria-label="Open Menu"
+            >
+                ☰
+            </button>
+
+        </div>
 
     </header>
 
 
+
     <!-- =====================================================
-         CONTACT PAGE
-    ====================================================== -->
-    <main class="contact-page">
+         HERO
+    ===================================================== -->
 
-        <!-- HERO -->
-        <section>
+    <main>
 
-            <div class="eyebrow">
-                Get In Touch
+        <section class="contact-hero">
+
+            <div class="contact-hero-content">
+
+                <div class="contact-kicker">
+                    GET IN TOUCH
+                </div>
+
+                <h1>
+                    LET'S
+                    <span>CONNECT.</span>
+                </h1>
+
+                <div class="contact-hero-line"></div>
+
+                <p class="contact-hero-description">
+                    Have a story, media opportunity, professional
+                    collaboration, or business inquiry? I would be
+                    happy to hear from you.
+                </p>
+
             </div>
-
-            <h1 class="hero-title">
-                Let's start a<br>
-                <span>conversation.</span>
-            </h1>
-
-            <p class="hero-description">
-                Whether you have a story to share, a media project,
-                a professional opportunity, or a business inquiry,
-                feel free to reach out.
-            </p>
 
         </section>
 
 
-        <!-- CONTACT GRID -->
-        <section class="contact-grid">
 
-            <!-- LEFT -->
-            <div class="info-panel">
+        <!-- =====================================================
+             CONTACT MAIN
+        ===================================================== -->
 
-                <div>
+        <section class="contact-main">
 
-                    <div class="panel-label">
-                        Direct Contact
-                    </div>
+            <div class="contact-container">
 
-                    <!-- Phone -->
-                    <div class="info-item">
+                <div class="contact-grid">
 
-                        <div class="info-icon">
-                            ☎
+
+                    <!-- LEFT -->
+
+                    <div class="contact-info">
+
+                        <div class="contact-info-kicker">
+                            CONTACT INFORMATION
                         </div>
 
-                        <div class="info-content">
+                        <h2>
+                            YEASIR
+                            <span>ARAFAT</span>
+                        </h2>
 
-                            <small>Phone</small>
+                        <p class="contact-role">
+                            Multimedia Journalist | Reporter |
+                            Entrepreneur
+                        </p>
 
-                            <a href="tel:+8801744814943">
-                                +880 1744-814943
+
+                        <div class="contact-details">
+
+
+                            <div class="contact-detail">
+
+                                <div class="contact-icon">
+                                    ☎
+                                </div>
+
+                                <div>
+
+                                    <small>
+                                        Phone
+                                    </small>
+
+                                    <a href="tel:+8801744814943">
+                                        +880 1744-814943
+                                    </a>
+
+                                </div>
+
+                            </div>
+
+
+                            <div class="contact-detail">
+
+                                <div class="contact-icon">
+                                    ✉
+                                </div>
+
+                                <div>
+
+                                    <small>
+                                        Email
+                                    </small>
+
+                                    <a href="mailto:yeasir.arafat4943@gmail.com">
+                                        yeasir.arafat4943@gmail.com
+                                    </a>
+
+                                </div>
+
+                            </div>
+
+
+                            <div class="contact-detail">
+
+                                <div class="contact-icon">
+                                    ◉
+                                </div>
+
+                                <div>
+
+                                    <small>
+                                        Location
+                                    </small>
+
+                                    <span>
+                                        152/4, Ahamad Nagar,
+                                        Paikpara, Mirpur 1,
+                                        Dhaka-1216
+                                    </span>
+
+                                </div>
+
+                            </div>
+
+
+                            <div class="contact-detail">
+
+                                <div class="contact-icon">
+                                    ●
+                                </div>
+
+                                <div>
+
+                                    <small>
+                                        Professional Focus
+                                    </small>
+
+                                    <span>
+                                        Digital Journalism,
+                                        Multimedia Reporting &
+                                        Digital Storytelling
+                                    </span>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="contact-socials">
+
+                            <a
+                                href="https://www.facebook.com/share/1DXM1m2rRF/?mibextid=wwXIfr"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+                                Facebook
                             </a>
 
-                        </div>
-
-                    </div>
-
-
-                    <!-- Email -->
-                    <div class="info-item">
-
-                        <div class="info-icon">
-                            ✉
-                        </div>
-
-                        <div class="info-content">
-
-                            <small>Email</small>
+                            <a
+                                href="https://www.youtube.com/"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+                                YouTube
+                            </a>
 
                             <a href="mailto:yeasir.arafat4943@gmail.com">
-                                yeasir.arafat4943@gmail.com
+                                Email
                             </a>
 
                         </div>
@@ -683,272 +1385,352 @@
                     </div>
 
 
-                    <!-- Location -->
-                    <div class="info-item">
 
-                        <div class="info-icon">
-                            ⌖
-                        </div>
+                    <!-- RIGHT FORM -->
 
-                        <div class="info-content">
+                    <div class="contact-form-wrapper">
 
-                            <small>Location</small>
+                        <div class="contact-form-heading">
 
-                            <p>
-                                152/4, Ahamad Nagar,<br>
-                                Paikpara, Mirpur 1,<br>
-                                Dhaka-1216, Bangladesh
-                            </p>
+                            <span>
+                                PROFESSIONAL INQUIRY
+                            </span>
 
-                        </div>
-
-                    </div>
-
-
-                    <!-- LinkedIn -->
-                    <div class="info-item">
-
-                        <div class="info-icon">
-                            in
-                        </div>
-
-                        <div class="info-content">
-
-                            <small>Professional Profile</small>
-
-                            <a href="#" target="_blank">
-                                yeasir-arafat4943
-                            </a>
+                            <h2>
+                                SEND A
+                                <span>MESSAGE.</span>
+                            </h2>
 
                         </div>
+
+
+                        <form
+                            action="mailto:yeasir.arafat4943@gmail.com"
+                            method="post"
+                            enctype="text/plain"
+                        >
+
+                            <div class="form-row">
+
+                                <div class="form-group">
+
+                                    <label for="name">
+                                        Your Name
+                                    </label>
+
+                                    <input
+                                        type="text"
+                                        id="name"
+                                        name="Name"
+                                        placeholder="Enter your name"
+                                        required
+                                    >
+
+                                </div>
+
+
+                                <div class="form-group">
+
+                                    <label for="email">
+                                        Email Address
+                                    </label>
+
+                                    <input
+                                        type="email"
+                                        id="email"
+                                        name="Email"
+                                        placeholder="Enter your email"
+                                        required
+                                    >
+
+                                </div>
+
+                            </div>
+
+
+                            <div class="form-group">
+
+                                <label for="subject">
+                                    Subject
+                                </label>
+
+                                <select
+                                    id="subject"
+                                    name="Subject"
+                                    required
+                                >
+
+                                    <option value="">
+                                        Select an inquiry type
+                                    </option>
+
+                                    <option value="Journalism">
+                                        Journalism / Reporting
+                                    </option>
+
+                                    <option value="Media">
+                                        Media / Content Production
+                                    </option>
+
+                                    <option value="Collaboration">
+                                        Professional Collaboration
+                                    </option>
+
+                                    <option value="Business">
+                                        Business Inquiry
+                                    </option>
+
+                                    <option value="Other">
+                                        Other
+                                    </option>
+
+                                </select>
+
+                            </div>
+
+
+                            <div class="form-group">
+
+                                <label for="message">
+                                    Message
+                                </label>
+
+                                <textarea
+                                    id="message"
+                                    name="Message"
+                                    placeholder="Write your message here..."
+                                    required
+                                ></textarea>
+
+                            </div>
+
+
+                            <button
+                                type="submit"
+                                class="contact-submit"
+                            >
+
+                                SEND MESSAGE
+
+                                <span>
+                                    →
+                                </span>
+
+                            </button>
+
+                        </form>
 
                     </div>
 
                 </div>
-
-
-                <!-- SOCIAL -->
-                <div class="social-area">
-
-                    <div class="social-title">
-                        Professional Identity
-                    </div>
-
-                    <a href="#" class="social-link" target="_blank">
-                        LinkedIn ↗
-                    </a>
-
-                </div>
-
-            </div>
-
-
-            <!-- RIGHT FORM -->
-            <div class="form-panel">
-
-                <h2 class="form-heading">
-                    Send a Message
-                </h2>
-
-                <p class="form-subtitle">
-                    Have an idea, opportunity or inquiry?
-                    Send a message and I'll get back to you.
-                </p>
-
-
-                <form id="contactForm">
-
-                    <div class="form-row">
-
-                        <div class="field">
-
-                            <label for="name">
-                                Your Name
-                            </label>
-
-                            <input
-                                type="text"
-                                id="name"
-                                name="name"
-                                placeholder="Enter your name"
-                                required
-                            >
-
-                        </div>
-
-
-                        <div class="field">
-
-                            <label for="email">
-                                Email Address
-                            </label>
-
-                            <input
-                                type="email"
-                                id="email"
-                                name="email"
-                                placeholder="you@example.com"
-                                required
-                            >
-
-                        </div>
-
-                    </div>
-
-
-                    <div class="field">
-
-                        <label for="subject">
-                            Subject
-                        </label>
-
-                        <select id="subject" name="subject">
-
-                            <option value="">
-                                Select an inquiry type
-                            </option>
-
-                            <option value="journalism">
-                                Journalism / Reporting
-                            </option>
-
-                            <option value="media">
-                                Media / Video Project
-                            </option>
-
-                            <option value="collaboration">
-                                Professional Collaboration
-                            </option>
-
-                            <option value="business">
-                                Business Inquiry
-                            </option>
-
-                            <option value="other">
-                                Other
-                            </option>
-
-                        </select>
-
-                    </div>
-
-
-                    <div class="field">
-
-                        <label for="message">
-                            Message
-                        </label>
-
-                        <textarea
-                            id="message"
-                            name="message"
-                            placeholder="Write your message here..."
-                            required
-                        ></textarea>
-
-                    </div>
-
-
-                    <button
-                        type="submit"
-                        class="submit-btn"
-                    >
-                        Send Message →
-                    </button>
-
-                </form>
 
             </div>
 
         </section>
 
 
-        <!-- =================================================
-             BUSINESS CTA
-        ================================================== -->
-        <section class="bottom-cta">
 
-            <div>
+        <!-- =====================================================
+             PROFESSIONAL AREAS
+        ===================================================== -->
 
-                <h3>
-                    Looking for a vehicle?
-                </h3>
+        <section class="contact-areas">
 
-                <p>
-                    Explore Amie's Mart for used cars & motorcycles.
-                </p>
+            <div class="contact-container">
+
+                <div class="contact-section-heading">
+
+                    <span>
+                        WHAT I CAN HELP WITH
+                    </span>
+
+                    <h2>
+                        PROFESSIONAL
+                        <span>AREAS.</span>
+                    </h2>
+
+                </div>
+
+
+                <div class="areas-grid">
+
+
+                    <div class="area-card">
+
+                        <span class="area-number">
+                            01
+                        </span>
+
+                        <h3>
+                            Journalism & Reporting
+                        </h3>
+
+                        <p>
+                            Field reporting, news writing,
+                            research and journalistic storytelling.
+                        </p>
+
+                    </div>
+
+
+                    <div class="area-card">
+
+                        <span class="area-number">
+                            02
+                        </span>
+
+                        <h3>
+                            Multimedia Production
+                        </h3>
+
+                        <p>
+                            Video journalism, news packages,
+                            voice-over and digital content.
+                        </p>
+
+                    </div>
+
+
+                    <div class="area-card">
+
+                        <span class="area-number">
+                            03
+                        </span>
+
+                        <h3>
+                            Digital Storytelling
+                        </h3>
+
+                        <p>
+                            Creating engaging stories and
+                            content for digital platforms.
+                        </p>
+
+                    </div>
+
+
+                    <div class="area-card">
+
+                        <span class="area-number">
+                            04
+                        </span>
+
+                        <h3>
+                            Business Inquiry
+                        </h3>
+
+                        <p>
+                            Used car and motorcycle buying,
+                            selling and business communication.
+                        </p>
+
+                    </div>
+
+                </div>
 
             </div>
 
-            <a
-                href="https://www.facebook.com/share/1DXM1m2rRF/?mibextid=wwXIfr"
-                target="_blank"
-                rel="noopener"
-                class="business-link"
-            >
-                Visit Amie's Mart ↗
-            </a>
+        </section>
+
+
+
+        <!-- =====================================================
+             FINAL STATEMENT
+        ===================================================== -->
+
+        <section class="contact-statement">
+
+            <div class="contact-statement-inner">
+
+                <small>
+                    OPEN FOR OPPORTUNITIES
+                </small>
+
+                <h2>
+                    LET'S TURN AN IDEA
+                    INTO <span>IMPACT.</span>
+                </h2>
+
+                <p>
+                    Whether it is a journalistic story, a media
+                    project, a professional collaboration, or a
+                    business opportunity — feel free to reach out.
+                </p>
+
+            </div>
 
         </section>
 
     </main>
 
 
+
     <!-- =====================================================
          FOOTER
-    ====================================================== -->
+    ===================================================== -->
 
-    <footer>
+    <footer class="site-footer">
 
-        <div>
-            © 2026 <span>Yeasir Arafat</span>. All Rights Reserved.
-        </div>
+        <div class="footer-container">
 
-        <div>
-            Multimedia Journalist • Reporter • Entrepreneur
+            <div class="footer-brand">
+
+                <a href="index.html" class="logo">
+                    YEASIR <span>ARAFAT</span>
+                </a>
+
+                <p>
+                    Multimedia Journalist | Reporter | Entrepreneur
+                </p>
+
+            </div>
+
+
+            <div class="footer-links">
+
+                <a href="index.html">
+                    Home
+                </a>
+
+                <a href="about.html">
+                    About
+                </a>
+
+                <a href="portfolio.html">
+                    Projects
+                </a>
+
+                <a href="business.html">
+                    Business
+                </a>
+
+                <a href="cv.html">
+                    CV
+                </a>
+
+                <a href="contact.html">
+                    Contact
+                </a>
+
+            </div>
+
+
+            <div class="footer-bottom">
+
+                <p>
+                    © 2026 Yeasir Arafat. All Rights Reserved.
+                </p>
+
+            </div>
+
         </div>
 
     </footer>
 
 
-    <!-- =====================================================
-         CONTACT FORM
-    ====================================================== -->
 
-    <script>
-
-        const contactForm = document.getElementById("contactForm");
-
-        contactForm.addEventListener("submit", function(event) {
-
-            event.preventDefault();
-
-            const name = document.getElementById("name").value.trim();
-            const email = document.getElementById("email").value.trim();
-            const subject = document.getElementById("subject").value;
-            const message = document.getElementById("message").value.trim();
-
-            if (!name || !email || !message) {
-                alert("Please fill in all required fields.");
-                return;
-            }
-
-            const mailSubject =
-                subject
-                    ? `${subject} — Contact from ${name}`
-                    : `Contact from ${name}`;
-
-            const mailBody =
-                `Name: ${name}%0D%0A` +
-                `Email: ${email}%0D%0A%0D%0A` +
-                `Message:%0D%0A${message}`;
-
-            window.location.href =
-                `mailto:yeasir.arafat4943@gmail.com?subject=${encodeURIComponent(mailSubject)}&body=${mailBody}`;
-
-        });
-
-    </script>
+    <!-- EXISTING WEBSITE JS -->
+    <script src="script.js"></script>
 
 </body>
 </html>
