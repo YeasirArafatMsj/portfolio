@@ -33,10 +33,10 @@ body {
 
     z-index: 1000;
 
-    background: rgba(4, 15, 28, 0.75);
+    background: rgba(4, 15, 28, 0.78);
 
-    backdrop-filter: blur(14px);
-    -webkit-backdrop-filter: blur(14px);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
 
     border-bottom: 1px solid rgba(144, 202, 249, 0.12);
 }
@@ -53,7 +53,7 @@ body {
     align-items: center;
     justify-content: space-between;
 
-    gap: 30px;
+    gap: 25px;
 }
 
 
@@ -77,6 +77,9 @@ body {
 
 .logo span {
     color: #2196f3;
+
+    text-shadow:
+        0 0 12px rgba(33, 150, 243, 0.8);
 }
 
 
@@ -86,19 +89,23 @@ body {
 
 .nav-menu {
     display: flex;
+
     align-items: center;
 
-    gap: 25px;
+    gap: 23px;
+
+    height: 78px;
 }
 
-.nav-menu a {
+.nav-menu > a,
+.projects-link {
     position: relative;
 
     color: #dbeeff;
 
     text-decoration: none;
 
-    font-size: 13px;
+    font-size: 12px;
 
     text-transform: uppercase;
 
@@ -106,10 +113,15 @@ body {
 
     padding: 8px 0;
 
-    transition: color 0.3s ease;
+    white-space: nowrap;
+
+    transition:
+        color 0.3s ease,
+        text-shadow 0.3s ease;
 }
 
-.nav-menu a::after {
+.nav-menu > a::after,
+.projects-link::after {
     content: "";
 
     position: absolute;
@@ -122,19 +134,309 @@ body {
 
     background: #2196f3;
 
-    box-shadow: 0 0 12px rgba(33, 150, 243, 0.9);
+    box-shadow:
+        0 0 12px rgba(33, 150, 243, 0.9);
 
     transition: width 0.3s ease;
 }
 
-.nav-menu a:hover,
-.nav-menu a.active {
+.nav-menu > a:hover,
+.nav-menu > a.active,
+.projects-link:hover {
+    color: #ffffff;
+
+    text-shadow:
+        0 0 10px rgba(144, 202, 249, 0.35);
+}
+
+.nav-menu > a:hover::after,
+.nav-menu > a.active::after,
+.projects-link:hover::after {
+    width: 100%;
+}
+
+
+/* ================================
+   PROJECTS DROPDOWN WRAPPER
+================================ */
+
+.nav-dropdown {
+    position: relative;
+
+    height: 78px;
+
+    display: flex;
+
+    align-items: center;
+}
+
+.projects-link {
+    display: flex;
+
+    align-items: center;
+
+    gap: 5px;
+}
+
+.projects-link span {
+    color: #90caf9;
+
+    font-size: 15px;
+
+    line-height: 1;
+
+    transition:
+        transform 0.3s ease,
+        color 0.3s ease;
+}
+
+.nav-dropdown:hover .projects-link span {
+    transform: rotate(180deg);
+
     color: #ffffff;
 }
 
-.nav-menu a:hover::after,
-.nav-menu a.active::after {
+
+/* ================================
+   PROJECTS DROPDOWN
+================================ */
+
+.projects-dropdown {
+    position: absolute;
+
+    top: calc(100% + 8px);
+
+    left: 50%;
+
+    transform:
+        translateX(-50%)
+        translateY(12px);
+
+    width: 400px;
+
+    max-height: 72vh;
+
+    overflow-y: auto;
+
+    padding: 12px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(7, 25, 43, 0.98),
+            rgba(3, 14, 27, 0.99)
+        );
+
+    border: 1px solid rgba(144, 202, 249, 0.22);
+
+    border-radius: 14px;
+
+    box-shadow:
+        0 25px 70px rgba(0, 0, 0, 0.65),
+        0 0 35px rgba(33, 150, 243, 0.08);
+
+    backdrop-filter: blur(22px);
+    -webkit-backdrop-filter: blur(22px);
+
+    opacity: 0;
+
+    visibility: hidden;
+
+    pointer-events: none;
+
+    transition:
+        opacity 0.25s ease,
+        transform 0.25s ease,
+        visibility 0.25s ease;
+
+    z-index: 3000;
+}
+
+
+/* TOP LIGHT */
+
+.projects-dropdown::before {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: 10%;
+
+    width: 80%;
+    height: 1px;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(144, 202, 249, 0.95),
+            transparent
+        );
+
+    box-shadow:
+        0 0 14px rgba(33, 150, 243, 0.8);
+}
+
+
+/* SHOW DROPDOWN */
+
+.nav-dropdown:hover .projects-dropdown {
+    opacity: 1;
+
+    visibility: visible;
+
+    pointer-events: auto;
+
+    transform:
+        translateX(-50%)
+        translateY(0);
+}
+
+
+/* ================================
+   PROJECT ITEM
+================================ */
+
+.projects-dropdown > a {
+    position: relative;
+
+    display: flex;
+
+    align-items: flex-start;
+
+    gap: 14px;
+
     width: 100%;
+
+    padding: 13px 12px;
+
+    margin: 2px 0;
+
+    color: #ffffff;
+
+    text-decoration: none;
+
+    border-radius: 9px;
+
+    border: 1px solid transparent;
+
+    transition:
+        background 0.25s ease,
+        border-color 0.25s ease,
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+
+/* PROJECT NUMBER */
+
+.projects-dropdown > a strong {
+    flex: 0 0 28px;
+
+    color: #90caf9;
+
+    font-size: 12px;
+
+    letter-spacing: 1px;
+
+    padding-top: 2px;
+
+    transition:
+        color 0.25s ease,
+        text-shadow 0.25s ease;
+}
+
+
+/* PROJECT TITLE */
+
+.projects-dropdown > a > span {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 4px;
+
+    min-width: 0;
+
+    color: #eaf5ff;
+
+    font-size: 13px;
+
+    line-height: 1.35;
+}
+
+
+/* PROJECT SUBTITLE */
+
+.projects-dropdown > a small {
+    color: #7f9bad;
+
+    font-size: 10px;
+
+    line-height: 1.4;
+
+    letter-spacing: 0.2px;
+
+    transition:
+        color 0.25s ease;
+}
+
+
+/* PROJECT HOVER */
+
+.projects-dropdown > a:hover {
+    background:
+        linear-gradient(
+            90deg,
+            rgba(33, 150, 243, 0.15),
+            rgba(33, 150, 243, 0.025)
+        );
+
+    border-color:
+        rgba(144, 202, 249, 0.2);
+
+    transform:
+        translateX(5px);
+
+    box-shadow:
+        inset 2px 0 0 rgba(33, 150, 243, 0.75);
+}
+
+.projects-dropdown > a:hover strong {
+    color: #ffffff;
+
+    text-shadow:
+        0 0 12px rgba(144, 202, 249, 0.95);
+}
+
+.projects-dropdown > a:hover small {
+    color: #90caf9;
+}
+
+
+/* ================================
+   DROPDOWN SCROLLBAR
+================================ */
+
+.projects-dropdown::-webkit-scrollbar {
+    width: 5px;
+}
+
+.projects-dropdown::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.projects-dropdown::-webkit-scrollbar-thumb {
+    background:
+        rgba(144, 202, 249, 0.28);
+
+    border-radius: 10px;
+}
+
+.projects-dropdown::-webkit-scrollbar-thumb:hover {
+    background:
+        rgba(144, 202, 249, 0.6);
 }
 
 
@@ -159,16 +461,20 @@ body {
 
     background: rgba(255, 255, 255, 0.04);
 
-    transition: all 0.3s ease;
+    transition:
+        width 0.3s ease,
+        border-color 0.3s ease,
+        box-shadow 0.3s ease;
 }
 
 .nav-search:focus-within {
     width: 175px;
 
-    border-color: rgba(33, 150, 243, 0.8);
+    border-color:
+        rgba(33, 150, 243, 0.8);
 
     box-shadow:
-        0 0 12px rgba(33, 150, 243, 0.2);
+        0 0 15px rgba(33, 150, 243, 0.2);
 }
 
 .search-icon {
@@ -177,12 +483,15 @@ body {
     font-size: 20px;
 
     line-height: 1;
+
+    flex-shrink: 0;
 }
 
 .nav-search input {
     width: 100%;
 
     border: none;
+
     outline: none;
 
     background: transparent;
@@ -251,7 +560,8 @@ body {
 
     transform: scale(1.05);
 
-    animation: heroZoom 14s ease-in-out infinite alternate;
+    animation:
+        heroZoom 14s ease-in-out infinite alternate;
 }
 
 @keyframes heroZoom {
@@ -297,6 +607,7 @@ body {
     z-index: 2;
 
     width: 92%;
+
     max-width: 1400px;
 
     margin: 0 auto;
@@ -315,10 +626,13 @@ body {
 
     margin-bottom: 22px;
 
-    animation: fadeUp 1s ease forwards;
+    animation:
+        fadeUp 1s ease forwards;
 }
 
 .hero-title {
+    position: relative;
+
     font-size: clamp(65px, 9vw, 145px);
 
     line-height: 0.82;
@@ -331,7 +645,10 @@ body {
 
     color: #ffffff;
 
-    animation: titleReveal 1.2s ease forwards;
+    overflow: hidden;
+
+    animation:
+        titleReveal 1.2s ease forwards;
 }
 
 .hero-title span {
@@ -343,14 +660,8 @@ body {
 
 
 /* ================================
-   LIGHT SWEEP EFFECT
+   HERO NAME LIGHT SWEEP
 ================================ */
-
-.hero-title {
-    position: relative;
-
-    overflow: hidden;
-}
 
 .hero-title::after {
     content: "";
@@ -358,9 +669,11 @@ body {
     position: absolute;
 
     top: 0;
+
     left: -120%;
 
     width: 60%;
+
     height: 100%;
 
     background:
@@ -371,9 +684,11 @@ body {
             transparent
         );
 
-    transform: skewX(-20deg);
+    transform:
+        skewX(-20deg);
 
-    animation: titleLight 5s ease-in-out infinite;
+    animation:
+        titleLight 5s ease-in-out infinite;
 }
 
 @keyframes titleLight {
@@ -409,7 +724,8 @@ body {
     box-shadow:
         0 0 15px rgba(33, 150, 243, 0.7);
 
-    animation: lineGrow 1.2s ease forwards;
+    animation:
+        lineGrow 1.2s ease forwards;
 }
 
 @keyframes lineGrow {
@@ -438,7 +754,8 @@ body {
 
     margin-bottom: 15px;
 
-    animation: fadeUp 1.3s ease forwards;
+    animation:
+        fadeUp 1.3s ease forwards;
 }
 
 .hero-subtitle span {
@@ -458,7 +775,8 @@ body {
 
     margin-bottom: 32px;
 
-    animation: fadeUp 1.5s ease forwards;
+    animation:
+        fadeUp 1.5s ease forwards;
 }
 
 
@@ -473,13 +791,15 @@ body {
 
     flex-wrap: wrap;
 
-    animation: fadeUp 1.7s ease forwards;
+    animation:
+        fadeUp 1.7s ease forwards;
 }
 
 .btn {
     display: inline-flex;
 
     align-items: center;
+
     justify-content: center;
 
     min-width: 170px;
@@ -512,7 +832,8 @@ body {
 }
 
 .btn-primary:hover {
-    transform: translateY(-4px);
+    transform:
+        translateY(-4px);
 
     background: #2196f3;
 
@@ -523,15 +844,19 @@ body {
 .btn-secondary {
     color: #ffffff;
 
-    border: 1px solid rgba(144, 202, 249, 0.5);
+    border:
+        1px solid rgba(144, 202, 249, 0.5);
 
-    background: rgba(255, 255, 255, 0.04);
+    background:
+        rgba(255, 255, 255, 0.04);
 }
 
 .btn-secondary:hover {
-    transform: translateY(-4px);
+    transform:
+        translateY(-4px);
 
-    border-color: #90caf9;
+    border-color:
+        #90caf9;
 
     box-shadow:
         0 0 25px rgba(144, 202, 249, 0.2);
@@ -576,7 +901,8 @@ body {
     box-shadow:
         0 0 10px rgba(33, 150, 243, 0.7);
 
-    animation: scrollPulse 2s ease-in-out infinite;
+    animation:
+        scrollPulse 2s ease-in-out infinite;
 }
 
 @keyframes scrollPulse {
@@ -584,14 +910,29 @@ body {
     0%,
     100% {
         opacity: 0.3;
-        transform: scaleY(0.6);
+
+        transform:
+            scaleY(0.6);
     }
 
     50% {
         opacity: 1;
-        transform: scaleY(1);
+
+        transform:
+            scaleY(1);
     }
 
+}
+
+
+/* ================================
+   FEATURED WORK PLACEHOLDER
+================================ */
+
+.featured-placeholder {
+    min-height: 1px;
+
+    background: #06111f;
 }
 
 
@@ -604,13 +945,15 @@ body {
     from {
         opacity: 0;
 
-        transform: translateY(25px);
+        transform:
+            translateY(25px);
     }
 
     to {
         opacity: 1;
 
-        transform: translateY(0);
+        transform:
+            translateY(0);
     }
 
 }
@@ -620,42 +963,59 @@ body {
     from {
         opacity: 0;
 
-        transform: translateY(45px);
+        transform:
+            translateY(45px);
 
-        filter: blur(8px);
+        filter:
+            blur(8px);
     }
 
     to {
         opacity: 1;
 
-        transform: translateY(0);
+        transform:
+            translateY(0);
 
-        filter: blur(0);
+        filter:
+            blur(0);
     }
 
 }
 
 
 /* ================================
-   RESPONSIVE
+   RESPONSIVE — TABLET
 ================================ */
 
 @media (max-width: 1100px) {
 
     .nav-menu {
-        gap: 15px;
+        gap: 14px;
     }
 
-    .nav-menu a {
-        font-size: 11px;
+    .nav-menu > a,
+    .projects-link {
+        font-size: 10px;
     }
 
     .nav-search {
-        width: 115px;
+        width: 110px;
+    }
+
+    .nav-search:focus-within {
+        width: 140px;
+    }
+
+    .projects-dropdown {
+        width: 370px;
     }
 
 }
 
+
+/* ================================
+   RESPONSIVE — MOBILE
+================================ */
 
 @media (max-width: 850px) {
 
@@ -673,7 +1033,8 @@ body {
     }
 
     .hero-title {
-        font-size: clamp(55px, 14vw, 100px);
+        font-size:
+            clamp(55px, 14vw, 100px);
 
         letter-spacing: -3px;
     }
@@ -690,6 +1051,10 @@ body {
 
 }
 
+
+/* ================================
+   RESPONSIVE — SMALL MOBILE
+================================ */
 
 @media (max-width: 500px) {
 
