@@ -4010,3 +4010,34 @@ input {
     border-radius: 14px !important;
     overflow: hidden !important;
 }
+/* =========================================================
+   CV PAGE — PROJECTS NAV LINK WHITE BOX FIX
+========================================================= */
+
+body:has(.cv-hero) .projects-link {
+    background: transparent !important;
+    color: inherit !important;
+    border: none !important;
+    box-shadow: none !important;
+    outline: none !important;
+    text-decoration: none !important;
+    border-radius: 0 !important;
+    padding: 0 !important;
+}
+
+/* Hover */
+body:has(.cv-hero) .projects-link:hover {
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    color: inherit !important;
+}
+
+/* Focus / active */
+body:has(.cv-hero) .projects-link:focus,
+body:has(.cv-hero) .projects-link:active {
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    outline: none !important;
+}
