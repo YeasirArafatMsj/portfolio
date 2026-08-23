@@ -5,10 +5,7 @@
 
     <meta charset="UTF-8">
 
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0"
-    >
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>CV | Yeasir Arafat</title>
 
@@ -17,20 +14,11 @@
         content="CV of Yeasir Arafat — Digital Journalism student at ULAB with experience in field reporting, Mobile Journalism, content creation and digital storytelling."
     >
 
-    <meta
-        name="author"
-        content="Yeasir Arafat"
-    >
+    <meta name="author" content="Yeasir Arafat">
 
-    <meta
-        name="theme-color"
-        content="#06111f"
-    >
+    <meta name="theme-color" content="#06111f">
 
-    <link
-        rel="stylesheet"
-        href="style.css"
-    >
+    <link rel="stylesheet" href="style.css">
 
 </head>
 
@@ -46,18 +34,17 @@
 
         <div class="nav-container">
 
-            <a
-                href="index.html"
-                class="logo"
-            >
+
+            <!-- LOGO -->
+
+            <a href="index.html" class="logo" aria-label="Yeasir Arafat Home">
                 YEASIR<span>.</span>
             </a>
 
 
-            <nav
-                class="nav-menu"
-                aria-label="Main navigation"
-            >
+            <!-- MAIN NAVIGATION -->
+
+            <nav class="nav-menu" aria-label="Main navigation">
 
                 <a href="index.html">
                     Home
@@ -68,20 +55,22 @@
                 </a>
 
 
-                <!-- PROJECTS -->
+                <!-- PROJECTS DROPDOWN -->
 
                 <div class="nav-dropdown">
 
-                    <a
-                        href="javascript:void(0)"
+                    <button
+                        type="button"
                         class="projects-link"
                         aria-haspopup="true"
+                        aria-expanded="false"
                     >
                         Projects
-                    </a>
+                    </button>
 
 
                     <div class="projects-dropdown">
+
 
                         <a href="projects/project-01.html">
                             <strong>01</strong>
@@ -91,6 +80,7 @@
                             </span>
                         </a>
 
+
                         <a href="projects/project-02.html">
                             <strong>02</strong>
                             <span>
@@ -98,6 +88,7 @@
                                 <small>Blog</small>
                             </span>
                         </a>
+
 
                         <a href="projects/project-03.html">
                             <strong>03</strong>
@@ -107,6 +98,7 @@
                             </span>
                         </a>
 
+
                         <a href="projects/project-04.html">
                             <strong>04</strong>
                             <span>
@@ -114,6 +106,7 @@
                                 <small>Podcast</small>
                             </span>
                         </a>
+
 
                         <a href="projects/project-05.html">
                             <strong>05</strong>
@@ -123,6 +116,7 @@
                             </span>
                         </a>
 
+
                         <a href="projects/project-06.html">
                             <strong>06</strong>
                             <span>
@@ -130,6 +124,7 @@
                                 <small>Installation</small>
                             </span>
                         </a>
+
 
                         <a href="projects/project-07.html">
                             <strong>07</strong>
@@ -139,6 +134,7 @@
                             </span>
                         </a>
 
+
                         <a href="projects/project-08.html">
                             <strong>08</strong>
                             <span>
@@ -146,6 +142,7 @@
                                 <small>In-Depth Report</small>
                             </span>
                         </a>
+
 
                         <a href="projects/project-09.html">
                             <strong>09</strong>
@@ -155,6 +152,7 @@
                             </span>
                         </a>
 
+
                         <a href="projects/project-10.html">
                             <strong>10</strong>
                             <span>
@@ -162,6 +160,7 @@
                                 <small>MOJO Project</small>
                             </span>
                         </a>
+
 
                         <a href="projects/project-11.html">
                             <strong>11</strong>
@@ -171,6 +170,7 @@
                             </span>
                         </a>
 
+
                         <a href="projects/project-12.html">
                             <strong>12</strong>
                             <span>
@@ -178,6 +178,7 @@
                                 <small>Data Project</small>
                             </span>
                         </a>
+
 
                         <a href="projects/project-13.html">
                             <strong>13</strong>
@@ -187,6 +188,7 @@
                             </span>
                         </a>
 
+
                         <a href="projects/project-14.html">
                             <strong>14</strong>
                             <span>
@@ -194,6 +196,7 @@
                                 <small>News Package</small>
                             </span>
                         </a>
+
 
                     </div>
 
@@ -208,10 +211,7 @@
                     Business
                 </a>
 
-                <a
-                    href="cv.html"
-                    class="active"
-                >
+                <a href="cv.html" class="active" aria-current="page">
                     CV
                 </a>
 
@@ -221,6 +221,8 @@
 
             </nav>
 
+
+            <!-- SEARCH -->
 
             <div class="nav-search">
 
@@ -232,7 +234,7 @@
                 </span>
 
                 <input
-                    type="text"
+                    type="search"
                     placeholder="Search..."
                     aria-label="Search website"
                     autocomplete="off"
@@ -240,6 +242,8 @@
 
             </div>
 
+
+            <!-- MOBILE MENU -->
 
             <button
                 class="menu-toggle"
@@ -250,6 +254,7 @@
                 ☰
             </button>
 
+
         </div>
 
     </header>
@@ -257,7 +262,7 @@
 
 
     <!-- =====================================================
-         MAIN
+         MAIN CONTENT
     ====================================================== -->
 
     <main>
@@ -269,16 +274,18 @@
 
         <section class="page-hero cv-hero">
 
+
             <div
                 class="page-hero-background"
-                style="
-                    background-image:
-                    url('assets/images/about.jpg');
-                "
+                style="background-image: url('assets/images/about.jpg');"
+                aria-hidden="true"
             ></div>
 
 
-            <div class="page-hero-overlay"></div>
+            <div
+                class="page-hero-overlay"
+                aria-hidden="true"
+            ></div>
 
 
             <div class="page-hero-content">
@@ -309,6 +316,7 @@
                     <span>↓</span>
                 </a>
 
+
             </div>
 
         </section>
@@ -324,6 +332,7 @@
             <div class="section-container">
 
                 <div class="cv-profile-card">
+
 
                     <div class="cv-profile-main">
 
@@ -347,31 +356,39 @@
 
                     <div class="cv-contact-info">
 
+
                         <p>
                             <strong>Location</strong>
                             <span>Mirpur 1, Dhaka-1216</span>
                         </p>
 
+
                         <p>
                             <strong>Phone</strong>
+
                             <a href="tel:+8801744814943">
                                 +880 1744-814943
                             </a>
                         </p>
 
+
                         <p>
                             <strong>Email</strong>
+
                             <a href="mailto:yeasir.arafat4943@gmail.com">
                                 yeasir.arafat4943@gmail.com
                             </a>
                         </p>
+
 
                         <p>
                             <strong>Profile</strong>
                             <span>yeasir-arafat4943</span>
                         </p>
 
+
                     </div>
+
 
                 </div>
 
@@ -388,6 +405,7 @@
         <section class="section-padding">
 
             <div class="section-container">
+
 
                 <div class="section-heading">
 
@@ -425,6 +443,7 @@
 
                 </div>
 
+
             </div>
 
         </section>
@@ -438,6 +457,7 @@
         <section class="section-padding cv-dark-section">
 
             <div class="section-container">
+
 
                 <div class="section-heading">
 
@@ -609,6 +629,7 @@
 
                     </article>
 
+
                 </div>
 
             </div>
@@ -618,12 +639,13 @@
 
 
         <!-- =================================================
-             PROJECTS
+             SELECTED PROJECTS
         ================================================== -->
 
         <section class="section-padding">
 
             <div class="section-container">
+
 
                 <div class="section-heading">
 
@@ -734,6 +756,7 @@
                         <strong>↗</strong>
                     </a>
 
+
                 </div>
 
             </div>
@@ -749,6 +772,7 @@
         <section class="section-padding cv-dark-section">
 
             <div class="section-container">
+
 
                 <div class="section-heading">
 
@@ -769,15 +793,19 @@
                 <div class="cv-skills-grid">
 
 
+                    <!-- SKILL 01 -->
+
                     <article class="cv-skill-card">
 
                         <span class="cv-skill-number">
                             01
                         </span>
 
+
                         <h3>
                             Journalism &amp; Media
                         </h3>
+
 
                         <ul>
 
@@ -798,15 +826,20 @@
                     </article>
 
 
+
+                    <!-- SKILL 02 -->
+
                     <article class="cv-skill-card">
 
                         <span class="cv-skill-number">
                             02
                         </span>
 
+
                         <h3>
                             Data &amp; Technology
                         </h3>
+
 
                         <ul>
 
@@ -821,6 +854,7 @@
                         </ul>
 
                     </article>
+
 
                 </div>
 
@@ -837,6 +871,7 @@
         <section class="section-padding">
 
             <div class="section-container">
+
 
                 <div class="section-heading">
 
@@ -857,24 +892,39 @@
                 <div class="language-grid">
 
 
+                    <!-- BANGLA -->
+
                     <article class="language-card">
 
                         <h3>
                             Bangla
                         </h3>
 
+
                         <div class="language-levels">
 
-                            <span>Reading <strong>Excellent</strong></span>
+                            <span>
+                                Reading
+                                <strong>Excellent</strong>
+                            </span>
 
-                            <span>Writing <strong>Excellent</strong></span>
+                            <span>
+                                Writing
+                                <strong>Excellent</strong>
+                            </span>
 
-                            <span>Speaking <strong>Excellent</strong></span>
+                            <span>
+                                Speaking
+                                <strong>Excellent</strong>
+                            </span>
 
                         </div>
 
                     </article>
 
+
+
+                    <!-- ENGLISH -->
 
                     <article class="language-card">
 
@@ -882,17 +932,28 @@
                             English
                         </h3>
 
+
                         <div class="language-levels">
 
-                            <span>Reading <strong>Good</strong></span>
+                            <span>
+                                Reading
+                                <strong>Good</strong>
+                            </span>
 
-                            <span>Writing <strong>Good</strong></span>
+                            <span>
+                                Writing
+                                <strong>Good</strong>
+                            </span>
 
-                            <span>Speaking <strong>Good</strong></span>
+                            <span>
+                                Speaking
+                                <strong>Good</strong>
+                            </span>
 
                         </div>
 
                     </article>
+
 
                 </div>
 
@@ -909,6 +970,7 @@
         <section class="section-padding cv-dark-section">
 
             <div class="section-container">
+
 
                 <div class="section-heading">
 
@@ -928,45 +990,54 @@
 
                 <div class="personal-profile-grid">
 
+
                     <div>
                         <span>Full Name</span>
                         <strong>Yeasir Arafat</strong>
                     </div>
+
 
                     <div>
                         <span>Father's Name</span>
                         <strong>MD. Amanul Haque Badal</strong>
                     </div>
 
+
                     <div>
                         <span>Mother's Name</span>
                         <strong>Hasina Begum</strong>
                     </div>
+
 
                     <div>
                         <span>Date of Birth</span>
                         <strong>February 13, 2002</strong>
                     </div>
 
+
                     <div>
                         <span>Nationality</span>
                         <strong>Bangladeshi</strong>
                     </div>
+
 
                     <div>
                         <span>Religion</span>
                         <strong>Muslim</strong>
                     </div>
 
+
                     <div>
                         <span>Sex</span>
                         <strong>Male</strong>
                     </div>
 
+
                     <div>
                         <span>Permanent Address</span>
                         <strong>Mirpur 1, Dhaka-1216</strong>
                     </div>
+
 
                 </div>
 
@@ -983,6 +1054,7 @@
         <section class="section-padding">
 
             <div class="section-container">
+
 
                 <div class="section-heading">
 
@@ -1001,6 +1073,8 @@
 
                 <div class="references-grid">
 
+
+                    <!-- REFERENCE 01 -->
 
                     <article class="reference-card">
 
@@ -1035,6 +1109,8 @@
 
 
 
+                    <!-- REFERENCE 02 -->
+
                     <article class="reference-card">
 
                         <span class="reference-number">
@@ -1066,6 +1142,7 @@
 
                     </article>
 
+
                 </div>
 
             </div>
@@ -1081,6 +1158,7 @@
         <section class="statement-section section-padding">
 
             <div class="section-container">
+
 
                 <div class="statement-content">
 
@@ -1100,6 +1178,7 @@
                         — Yeasir Arafat
                     </p>
 
+
                 </div>
 
             </div>
@@ -1115,6 +1194,7 @@
         <section class="contact-cta section-padding">
 
             <div class="section-container">
+
 
                 <div class="contact-cta-content">
 
@@ -1144,11 +1224,13 @@
                         <span>↓</span>
                     </a>
 
+
                 </div>
 
             </div>
 
         </section>
+
 
     </main>
 
@@ -1162,6 +1244,7 @@
 
         <div class="footer-container">
 
+
             <div class="footer-brand">
 
                 <a
@@ -1171,11 +1254,13 @@
                     YEASIR<span>.</span>
                 </a>
 
+
                 <p>
                     Multimedia Journalist · Reporter · Entrepreneur
                 </p>
 
             </div>
+
 
 
             <div class="footer-links">
@@ -1199,6 +1284,7 @@
                 <a
                     href="cv.html"
                     class="active"
+                    aria-current="page"
                 >
                     CV
                 </a>
@@ -1210,6 +1296,7 @@
             </div>
 
 
+
             <div class="footer-bottom">
 
                 <p>
@@ -1217,6 +1304,7 @@
                 </p>
 
             </div>
+
 
         </div>
 
@@ -1229,6 +1317,7 @@
     ====================================================== -->
 
     <script src="script.js"></script>
+
 
 </body>
 
