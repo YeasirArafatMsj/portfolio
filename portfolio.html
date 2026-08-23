@@ -1,1 +1,1895 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
 
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Portfolio | Yeasir Arafat</title>
+
+    <meta
+        name="description"
+        content="Yeasir Arafat — Selected academic, journalism, communication and multimedia projects."
+    >
+
+    <meta
+        name="author"
+        content="Yeasir Arafat"
+    >
+
+    <meta
+        name="theme-color"
+        content="#06111f"
+    >
+
+    <link
+        rel="stylesheet"
+        href="style.css"
+    >
+
+    <style>
+
+        /* =====================================================
+           PORTFOLIO PAGE
+        ===================================================== */
+
+        .portfolio-page {
+            background: #06111f;
+            color: #ffffff;
+        }
+
+
+        /* =====================================================
+           PORTFOLIO HERO
+        ===================================================== */
+
+        .portfolio-hero {
+            position: relative;
+            min-height: 78vh;
+            display: flex;
+            align-items: center;
+            overflow: hidden;
+        }
+
+
+        .portfolio-hero-background {
+            position: absolute;
+            inset: 0;
+
+            background-image:
+                url('assets/images/journey/ulab.jpg');
+
+            background-size: cover;
+            background-position: center;
+
+            transform: scale(1.04);
+        }
+
+
+        .portfolio-hero-overlay {
+            position: absolute;
+            inset: 0;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    rgba(3, 10, 18, .94) 0%,
+                    rgba(3, 10, 18, .78) 45%,
+                    rgba(3, 10, 18, .40) 100%
+                );
+
+        }
+
+
+        .portfolio-hero-content {
+            position: relative;
+            z-index: 2;
+
+            width: min(1200px, 90%);
+            margin: 0 auto;
+
+            padding-top: 100px;
+        }
+
+
+        .portfolio-hero-label {
+            margin: 0 0 18px;
+
+            font-size: 13px;
+            font-weight: 700;
+
+            letter-spacing: .28em;
+
+            color: #d8b45a;
+        }
+
+
+        .portfolio-hero-title {
+            margin: 0;
+
+            font-size: clamp(
+                58px,
+                10vw,
+                150px
+            );
+
+            line-height: .88;
+
+            font-weight: 800;
+            letter-spacing: -.04em;
+        }
+
+
+        .portfolio-hero-title span {
+            color: #d8b45a;
+        }
+
+
+        .portfolio-hero-line {
+            width: 90px;
+            height: 2px;
+
+            margin: 32px 0 22px;
+
+            background: #d8b45a;
+        }
+
+
+        .portfolio-hero-subtitle {
+            margin: 0;
+
+            max-width: 650px;
+
+            font-size: clamp(
+                22px,
+                3vw,
+                36px
+            );
+
+            line-height: 1.2;
+        }
+
+
+        .portfolio-hero-meta {
+            margin-top: 18px;
+
+            font-size: 13px;
+
+            letter-spacing: .14em;
+
+            color: rgba(255,255,255,.65);
+
+            text-transform: uppercase;
+        }
+
+
+        /* =====================================================
+           PROJECTS SECTION
+        ===================================================== */
+
+        .portfolio-projects {
+            padding: 120px 0;
+        }
+
+
+        .portfolio-container {
+            width: min(1250px, 90%);
+            margin: 0 auto;
+        }
+
+
+        .portfolio-section-heading {
+            margin-bottom: 55px;
+        }
+
+
+        .portfolio-section-kicker {
+            margin-bottom: 12px;
+
+            color: #d8b45a;
+
+            font-size: 12px;
+            font-weight: 700;
+
+            letter-spacing: .22em;
+        }
+
+
+        .portfolio-section-heading h2 {
+            margin: 0;
+
+            font-size: clamp(
+                42px,
+                6vw,
+                76px
+            );
+
+            line-height: 1;
+
+            letter-spacing: -.03em;
+        }
+
+
+        .portfolio-section-heading h2 span {
+            color: #d8b45a;
+        }
+
+
+        .portfolio-section-line {
+            width: 70px;
+            height: 2px;
+
+            margin-top: 25px;
+
+            background: #d8b45a;
+        }
+
+
+        /* =====================================================
+           14 PROJECT GRID
+        ===================================================== */
+
+        .portfolio-grid {
+            display: grid;
+
+            grid-template-columns:
+                repeat(3, 1fr);
+
+            gap: 22px;
+        }
+
+
+        .portfolio-card {
+            position: relative;
+
+            aspect-ratio: 1 / 1;
+
+            overflow: hidden;
+
+            background: #0b1828;
+
+            border: 1px solid
+                rgba(255,255,255,.08);
+
+            isolation: isolate;
+        }
+
+
+        .portfolio-card-image {
+            position: absolute;
+            inset: 0;
+
+            width: 100%;
+            height: 100%;
+
+            object-fit: cover;
+
+            transition:
+                transform .7s cubic-bezier(.2,.7,.2,1),
+                filter .7s ease;
+        }
+
+
+        .portfolio-card::after {
+            content: "";
+
+            position: absolute;
+            inset: 0;
+
+            z-index: 1;
+
+            background:
+                linear-gradient(
+                    to top,
+                    rgba(2,8,15,.96),
+                    rgba(2,8,15,.15) 65%,
+                    transparent
+                );
+
+            opacity: 0;
+
+            transition: opacity .5s ease;
+        }
+
+
+        .portfolio-card-overlay {
+            position: absolute;
+            inset: 0;
+
+            z-index: 2;
+
+            display: flex;
+
+            flex-direction: column;
+            justify-content: flex-end;
+
+            padding: 30px;
+
+            transform:
+                translateY(25px);
+
+            opacity: 0;
+
+            transition:
+                opacity .45s ease,
+                transform .55s ease;
+        }
+
+
+        .portfolio-card-number {
+            margin-bottom: 9px;
+
+            color: #d8b45a;
+
+            font-size: 12px;
+            font-weight: 700;
+
+            letter-spacing: .18em;
+        }
+
+
+        .portfolio-card-overlay h3 {
+            margin: 0 0 7px;
+
+            font-size: 24px;
+
+            line-height: 1.1;
+        }
+
+
+        .portfolio-card-type {
+            margin: 0 0 22px;
+
+            color: rgba(255,255,255,.68);
+
+            font-size: 13px;
+
+            font-style: italic;
+        }
+
+
+        .portfolio-card-button {
+            display: inline-flex;
+
+            align-items: center;
+            gap: 9px;
+
+            width: fit-content;
+
+            padding: 11px 16px;
+
+            border: 1px solid
+                rgba(216,180,90,.6);
+
+            color: #ffffff;
+
+            font-size: 11px;
+            font-weight: 700;
+
+            letter-spacing: .12em;
+
+            text-decoration: none;
+
+            transition:
+                background .3s ease,
+                color .3s ease;
+        }
+
+
+        .portfolio-card-button:hover {
+            background: #d8b45a;
+            color: #06111f;
+        }
+
+
+        .portfolio-card:hover
+        .portfolio-card-image {
+            transform: scale(1.08);
+            filter: brightness(.72);
+        }
+
+
+        .portfolio-card:hover::after {
+            opacity: 1;
+        }
+
+
+        .portfolio-card:hover
+        .portfolio-card-overlay {
+            opacity: 1;
+
+            transform:
+                translateY(0);
+        }
+
+
+        /* =====================================================
+           VIDEO WORKS
+        ===================================================== */
+
+        .video-works {
+            padding: 120px 0;
+
+            background:
+                linear-gradient(
+                    180deg,
+                    #071525 0%,
+                    #06111f 100%
+                );
+        }
+
+
+        .video-heading {
+            text-align: center;
+
+            max-width: 700px;
+
+            margin:
+                0 auto 60px;
+        }
+
+
+        .video-heading .portfolio-section-line {
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+
+        .video-heading p {
+            margin: 18px auto 0;
+
+            color: rgba(255,255,255,.62);
+
+            font-size: 15px;
+        }
+
+
+        .video-grid {
+            display: grid;
+
+            grid-template-columns:
+                repeat(2, 1fr);
+
+            gap: 28px;
+        }
+
+
+        .video-card {
+            overflow: hidden;
+
+            background: #091827;
+
+            border:
+                1px solid
+                rgba(255,255,255,.08);
+
+            box-shadow:
+                0 20px 60px
+                rgba(0,0,0,.25);
+        }
+
+
+        .video-frame {
+            position: relative;
+
+            aspect-ratio: 16 / 9;
+
+            background: #000;
+        }
+
+
+        .video-frame iframe {
+            position: absolute;
+
+            inset: 0;
+
+            width: 100%;
+            height: 100%;
+
+            border: 0;
+        }
+
+
+        .video-info {
+            padding: 24px 25px 28px;
+        }
+
+
+        .video-number {
+            display: block;
+
+            margin-bottom: 7px;
+
+            color: #d8b45a;
+
+            font-size: 11px;
+            font-weight: 700;
+
+            letter-spacing: .16em;
+        }
+
+
+        .video-info h3 {
+            margin: 0 0 7px;
+
+            font-size: 23px;
+        }
+
+
+        .video-info p {
+            margin: 0;
+
+            color: rgba(255,255,255,.62);
+
+            font-size: 13px;
+            line-height: 1.6;
+        }
+
+
+        /* =====================================================
+           CONTACT CTA
+        ===================================================== */
+
+        .portfolio-contact {
+            padding: 130px 0;
+
+            text-align: center;
+        }
+
+
+        .portfolio-contact-content {
+            max-width: 850px;
+            margin: 0 auto;
+        }
+
+
+        .portfolio-contact h2 {
+            margin: 0;
+
+            font-size: clamp(
+                42px,
+                6vw,
+                76px
+            );
+
+            line-height: 1;
+        }
+
+
+        .portfolio-contact h2 span {
+            color: #d8b45a;
+        }
+
+
+        .portfolio-contact p {
+            max-width: 600px;
+
+            margin:
+                25px auto 35px;
+
+            color:
+                rgba(255,255,255,.65);
+
+            line-height: 1.7;
+        }
+
+
+        .portfolio-contact-button {
+            display: inline-flex;
+
+            align-items: center;
+            gap: 12px;
+
+            padding: 15px 25px;
+
+            background: #d8b45a;
+
+            color: #06111f;
+
+            font-size: 12px;
+            font-weight: 800;
+
+            letter-spacing: .12em;
+
+            text-decoration: none;
+
+            transition:
+                transform .3s ease,
+                box-shadow .3s ease;
+        }
+
+
+        .portfolio-contact-button:hover {
+            transform: translateY(-3px);
+
+            box-shadow:
+                0 15px 35px
+                rgba(216,180,90,.2);
+        }
+
+
+        /* =====================================================
+           RESPONSIVE
+        ===================================================== */
+
+        @media (max-width: 900px) {
+
+            .portfolio-grid {
+                grid-template-columns:
+                    repeat(2, 1fr);
+            }
+
+        }
+
+
+        @media (max-width: 650px) {
+
+            .portfolio-hero {
+                min-height: 70vh;
+            }
+
+
+            .portfolio-hero-content {
+                padding-top: 80px;
+            }
+
+
+            .portfolio-projects,
+            .video-works,
+            .portfolio-contact {
+                padding: 80px 0;
+            }
+
+
+            .portfolio-grid,
+            .video-grid {
+                grid-template-columns: 1fr;
+            }
+
+
+            .portfolio-card {
+                aspect-ratio: 4 / 3;
+            }
+
+
+            .portfolio-card-overlay {
+                opacity: 1;
+
+                transform:
+                    translateY(0);
+            }
+
+
+            .portfolio-card::after {
+                opacity: 1;
+            }
+
+
+            .portfolio-card-image {
+                filter: brightness(.72);
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body class="portfolio-page">
+
+
+    <!-- =====================================================
+         NAVIGATION
+    ====================================================== -->
+
+    <header class="navbar">
+
+        <div class="nav-container">
+
+
+            <a
+                href="index.html"
+                class="logo"
+            >
+                YEASIR<span>.</span>
+            </a>
+
+
+            <nav class="nav-menu">
+
+
+                <a href="index.html">
+                    Home
+                </a>
+
+
+                <a href="about.html">
+                    About
+                </a>
+
+
+                <!-- PROJECTS -->
+
+                <div class="nav-dropdown">
+
+                    <a
+                        href="#"
+                        class="projects-link"
+                    >
+                        Projects
+                    </a>
+
+
+                    <div class="projects-dropdown">
+
+
+                        <a href="projects/project-01.html">
+                            <strong>01</strong>
+                            <span>
+                                Communication Research
+                                <small>Research Proposal</small>
+                            </span>
+                        </a>
+
+
+                        <a href="projects/project-02.html">
+                            <strong>02</strong>
+                            <span>
+                                Communication Technology
+                                <small>Blog</small>
+                            </span>
+                        </a>
+
+
+                        <a href="projects/project-03.html">
+                            <strong>03</strong>
+                            <span>
+                                Mass Communication
+                                <small>Mask</small>
+                            </span>
+                        </a>
+
+
+                        <a href="projects/project-04.html">
+                            <strong>04</strong>
+                            <span>
+                                Advanced English Writing Skill
+                                <small>Podcast</small>
+                            </span>
+                        </a>
+
+
+                        <a href="projects/project-05.html">
+                            <strong>05</strong>
+                            <span>
+                                Advanced Bangla Writing Skill
+                                <small>Bangla Feature</small>
+                            </span>
+                        </a>
+
+
+                        <a href="projects/project-06.html">
+                            <strong>06</strong>
+                            <span>
+                                Convergence Communication I
+                                <small>Installation</small>
+                            </span>
+                        </a>
+
+
+                        <a href="projects/project-07.html">
+                            <strong>07</strong>
+                            <span>
+                                Convergence Communication II
+                                <small>Video Art</small>
+                            </span>
+                        </a>
+
+
+                        <a href="projects/project-08.html">
+                            <strong>08</strong>
+                            <span>
+                                News Sourcing &amp; Gathering
+                                <small>In-Depth Report</small>
+                            </span>
+                        </a>
+
+
+                        <a href="projects/project-09.html">
+                            <strong>09</strong>
+                            <span>
+                                Online Journalism
+                                <small>Multimedia Story</small>
+                            </span>
+                        </a>
+
+
+                        <a href="projects/project-10.html">
+                            <strong>10</strong>
+                            <span>
+                                Mobile Journalism
+                                <small>MOJO Project</small>
+                            </span>
+                        </a>
+
+
+                        <a href="projects/project-11.html">
+                            <strong>11</strong>
+                            <span>
+                                News Editing &amp; Translation
+                                <small>Translation</small>
+                            </span>
+                        </a>
+
+
+                        <a href="projects/project-12.html">
+                            <strong>12</strong>
+                            <span>
+                                Data Journalism
+                                <small>Data Project</small>
+                            </span>
+                        </a>
+
+
+                        <a href="projects/project-13.html">
+                            <strong>13</strong>
+                            <span>
+                                Investigative Journalism I
+                                <small>News Package</small>
+                            </span>
+                        </a>
+
+
+                        <a href="projects/project-14.html">
+                            <strong>14</strong>
+                            <span>
+                                Investigative Journalism II
+                                <small>News Package</small>
+                            </span>
+                        </a>
+
+
+                    </div>
+
+                </div>
+
+
+                <a
+                    href="portfolio.html"
+                    class="active"
+                >
+                    Portfolio
+                </a>
+
+
+                <a href="business.html">
+                    Business
+                </a>
+
+
+                <a href="cv.html">
+                    CV
+                </a>
+
+
+                <a href="contact.html">
+                    Contact
+                </a>
+
+
+            </nav>
+
+
+            <div class="nav-search">
+
+                <span class="search-icon">
+                    ⌕
+                </span>
+
+                <input
+                    type="text"
+                    placeholder="Search..."
+                    aria-label="Search website"
+                >
+
+            </div>
+
+
+            <button
+                class="menu-toggle"
+                aria-label="Open navigation menu"
+                type="button"
+            >
+                ☰
+            </button>
+
+
+        </div>
+
+    </header>
+
+
+
+    <!-- =====================================================
+         MAIN
+    ====================================================== -->
+
+    <main>
+
+
+        <!-- =================================================
+             01 — HERO
+        ================================================== -->
+
+        <section class="portfolio-hero">
+
+
+            <div
+                class="portfolio-hero-background"
+            ></div>
+
+
+            <div
+                class="portfolio-hero-overlay"
+            ></div>
+
+
+            <div class="portfolio-hero-content">
+
+                <p class="portfolio-hero-label">
+                    SELECTED WORKS
+                </p>
+
+
+                <h1 class="portfolio-hero-title">
+                    <span>PORTFOLIO</span>
+                </h1>
+
+
+                <div class="portfolio-hero-line"></div>
+
+
+                <p class="portfolio-hero-subtitle">
+                    Selected Academic &amp; Creative Works
+                </p>
+
+
+                <p class="portfolio-hero-meta">
+                    Research
+                    •
+                    Journalism
+                    •
+                    Communication
+                    •
+                    Multimedia
+                </p>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             02 — 14 PROJECTS
+        ================================================== -->
+
+        <section class="portfolio-projects">
+
+
+            <div class="portfolio-container">
+
+
+                <div class="portfolio-section-heading">
+
+                    <p class="portfolio-section-kicker">
+                        ACADEMIC &amp; CREATIVE WORKS
+                    </p>
+
+
+                    <h2>
+                        Selected
+                        <span>Projects</span>
+                    </h2>
+
+
+                    <div class="portfolio-section-line"></div>
+
+                </div>
+
+
+                <div class="portfolio-grid">
+
+
+                    <!-- 01 -->
+
+                    <a
+                        href="projects/project-01.html"
+                        class="portfolio-card"
+                    >
+
+                        <img
+                            src="assets/images/projects/project-01.jpg"
+                            alt="Communication Research"
+                            class="portfolio-card-image"
+                            loading="lazy"
+                        >
+
+
+                        <div class="portfolio-card-overlay">
+
+                            <span class="portfolio-card-number">
+                                PROJECT 01
+                            </span>
+
+                            <h3>
+                                Communication Research
+                            </h3>
+
+                            <p class="portfolio-card-type">
+                                Research Proposal
+                            </p>
+
+                            <span class="portfolio-card-button">
+                                VIEW PROJECT PDF →
+                            </span>
+
+                        </div>
+
+                    </a>
+
+
+
+                    <!-- 02 -->
+
+                    <a
+                        href="projects/project-02.html"
+                        class="portfolio-card"
+                    >
+
+                        <img
+                            src="assets/images/projects/project-02.jpg"
+                            alt="Communication Technology"
+                            class="portfolio-card-image"
+                            loading="lazy"
+                        >
+
+
+                        <div class="portfolio-card-overlay">
+
+                            <span class="portfolio-card-number">
+                                PROJECT 02
+                            </span>
+
+                            <h3>
+                                Communication Technology
+                            </h3>
+
+                            <p class="portfolio-card-type">
+                                Blog
+                            </p>
+
+                            <span class="portfolio-card-button">
+                                VIEW PROJECT PDF →
+                            </span>
+
+                        </div>
+
+                    </a>
+
+
+
+                    <!-- 03 -->
+
+                    <a
+                        href="projects/project-03.html"
+                        class="portfolio-card"
+                    >
+
+                        <img
+                            src="assets/images/projects/project-03.jpg"
+                            alt="Mass Communication"
+                            class="portfolio-card-image"
+                            loading="lazy"
+                        >
+
+
+                        <div class="portfolio-card-overlay">
+
+                            <span class="portfolio-card-number">
+                                PROJECT 03
+                            </span>
+
+                            <h3>
+                                Mass Communication
+                            </h3>
+
+                            <p class="portfolio-card-type">
+                                Mask
+                            </p>
+
+                            <span class="portfolio-card-button">
+                                VIEW PROJECT PDF →
+                            </span>
+
+                        </div>
+
+                    </a>
+
+
+
+                    <!-- 04 -->
+
+                    <a
+                        href="projects/project-04.html"
+                        class="portfolio-card"
+                    >
+
+                        <img
+                            src="assets/images/projects/project-04.jpg"
+                            alt="Advanced English Writing Skill"
+                            class="portfolio-card-image"
+                            loading="lazy"
+                        >
+
+
+                        <div class="portfolio-card-overlay">
+
+                            <span class="portfolio-card-number">
+                                PROJECT 04
+                            </span>
+
+                            <h3>
+                                Advanced English Writing Skill
+                            </h3>
+
+                            <p class="portfolio-card-type">
+                                Podcast
+                            </p>
+
+                            <span class="portfolio-card-button">
+                                VIEW PROJECT PDF →
+                            </span>
+
+                        </div>
+
+                    </a>
+
+
+
+                    <!-- 05 -->
+
+                    <a
+                        href="projects/project-05.html"
+                        class="portfolio-card"
+                    >
+
+                        <img
+                            src="assets/images/projects/project-05.jpg"
+                            alt="Advanced Bangla Writing Skill"
+                            class="portfolio-card-image"
+                            loading="lazy"
+                        >
+
+
+                        <div class="portfolio-card-overlay">
+
+                            <span class="portfolio-card-number">
+                                PROJECT 05
+                            </span>
+
+                            <h3>
+                                Advanced Bangla Writing Skill
+                            </h3>
+
+                            <p class="portfolio-card-type">
+                                Bangla Feature
+                            </p>
+
+                            <span class="portfolio-card-button">
+                                VIEW PROJECT PDF →
+                            </span>
+
+                        </div>
+
+                    </a>
+
+
+
+                    <!-- 06 -->
+
+                    <a
+                        href="projects/project-06.html"
+                        class="portfolio-card"
+                    >
+
+                        <img
+                            src="assets/images/projects/project-06.jpg"
+                            alt="Convergence Communication I"
+                            class="portfolio-card-image"
+                            loading="lazy"
+                        >
+
+
+                        <div class="portfolio-card-overlay">
+
+                            <span class="portfolio-card-number">
+                                PROJECT 06
+                            </span>
+
+                            <h3>
+                                Convergence Communication I
+                            </h3>
+
+                            <p class="portfolio-card-type">
+                                Installation
+                            </p>
+
+                            <span class="portfolio-card-button">
+                                VIEW PROJECT PDF →
+                            </span>
+
+                        </div>
+
+                    </a>
+
+
+
+                    <!-- 07 -->
+
+                    <a
+                        href="projects/project-07.html"
+                        class="portfolio-card"
+                    >
+
+                        <img
+                            src="assets/images/projects/project-07.jpg"
+                            alt="Convergence Communication II"
+                            class="portfolio-card-image"
+                            loading="lazy"
+                        >
+
+
+                        <div class="portfolio-card-overlay">
+
+                            <span class="portfolio-card-number">
+                                PROJECT 07
+                            </span>
+
+                            <h3>
+                                Convergence Communication II
+                            </h3>
+
+                            <p class="portfolio-card-type">
+                                Video Art
+                            </p>
+
+                            <span class="portfolio-card-button">
+                                VIEW PROJECT PDF →
+                            </span>
+
+                        </div>
+
+                    </a>
+
+
+
+                    <!-- 08 -->
+
+                    <a
+                        href="projects/project-08.html"
+                        class="portfolio-card"
+                    >
+
+                        <img
+                            src="assets/images/projects/project-08.jpg"
+                            alt="News Sourcing and Gathering"
+                            class="portfolio-card-image"
+                            loading="lazy"
+                        >
+
+
+                        <div class="portfolio-card-overlay">
+
+                            <span class="portfolio-card-number">
+                                PROJECT 08
+                            </span>
+
+                            <h3>
+                                News Sourcing &amp; Gathering
+                            </h3>
+
+                            <p class="portfolio-card-type">
+                                In-Depth Report
+                            </p>
+
+                            <span class="portfolio-card-button">
+                                VIEW PROJECT PDF →
+                            </span>
+
+                        </div>
+
+                    </a>
+
+
+
+                    <!-- 09 -->
+
+                    <a
+                        href="projects/project-09.html"
+                        class="portfolio-card"
+                    >
+
+                        <img
+                            src="assets/images/projects/project-09.jpg"
+                            alt="Online Journalism"
+                            class="portfolio-card-image"
+                            loading="lazy"
+                        >
+
+
+                        <div class="portfolio-card-overlay">
+
+                            <span class="portfolio-card-number">
+                                PROJECT 09
+                            </span>
+
+                            <h3>
+                                Online Journalism
+                            </h3>
+
+                            <p class="portfolio-card-type">
+                                Multimedia Story
+                            </p>
+
+                            <span class="portfolio-card-button">
+                                VIEW PROJECT PDF →
+                            </span>
+
+                        </div>
+
+                    </a>
+
+
+
+                    <!-- 10 -->
+
+                    <a
+                        href="projects/project-10.html"
+                        class="portfolio-card"
+                    >
+
+                        <img
+                            src="assets/images/projects/project-10.jpg"
+                            alt="Mobile Journalism"
+                            class="portfolio-card-image"
+                            loading="lazy"
+                        >
+
+
+                        <div class="portfolio-card-overlay">
+
+                            <span class="portfolio-card-number">
+                                PROJECT 10
+                            </span>
+
+                            <h3>
+                                Mobile Journalism
+                            </h3>
+
+                            <p class="portfolio-card-type">
+                                MOJO Project
+                            </p>
+
+                            <span class="portfolio-card-button">
+                                VIEW PROJECT PDF →
+                            </span>
+
+                        </div>
+
+                    </a>
+
+
+
+                    <!-- 11 -->
+
+                    <a
+                        href="projects/project-11.html"
+                        class="portfolio-card"
+                    >
+
+                        <img
+                            src="assets/images/projects/project-11.jpg"
+                            alt="News Editing and Translation"
+                            class="portfolio-card-image"
+                            loading="lazy"
+                        >
+
+
+                        <div class="portfolio-card-overlay">
+
+                            <span class="portfolio-card-number">
+                                PROJECT 11
+                            </span>
+
+                            <h3>
+                                News Editing &amp; Translation
+                            </h3>
+
+                            <p class="portfolio-card-type">
+                                Bangla-English / English-Bangla Translation
+                            </p>
+
+                            <span class="portfolio-card-button">
+                                VIEW PROJECT PDF →
+                            </span>
+
+                        </div>
+
+                    </a>
+
+
+
+                    <!-- 12 -->
+
+                    <a
+                        href="projects/project-12.html"
+                        class="portfolio-card"
+                    >
+
+                        <img
+                            src="assets/images/projects/project-12.jpg"
+                            alt="Data Journalism"
+                            class="portfolio-card-image"
+                            loading="lazy"
+                        >
+
+
+                        <div class="portfolio-card-overlay">
+
+                            <span class="portfolio-card-number">
+                                PROJECT 12
+                            </span>
+
+                            <h3>
+                                Data Journalism
+                            </h3>
+
+                            <p class="portfolio-card-type">
+                                Data Project
+                            </p>
+
+                            <span class="portfolio-card-button">
+                                VIEW PROJECT PDF →
+                            </span>
+
+                        </div>
+
+                    </a>
+
+
+
+                    <!-- 13 -->
+
+                    <a
+                        href="projects/project-13.html"
+                        class="portfolio-card"
+                    >
+
+                        <img
+                            src="assets/images/projects/project-13.jpg"
+                            alt="Investigative Journalism I"
+                            class="portfolio-card-image"
+                            loading="lazy"
+                        >
+
+
+                        <div class="portfolio-card-overlay">
+
+                            <span class="portfolio-card-number">
+                                PROJECT 13
+                            </span>
+
+                            <h3>
+                                Investigative Journalism I
+                            </h3>
+
+                            <p class="portfolio-card-type">
+                                News Package
+                            </p>
+
+                            <span class="portfolio-card-button">
+                                VIEW PROJECT PDF →
+                            </span>
+
+                        </div>
+
+                    </a>
+
+
+
+                    <!-- 14 -->
+
+                    <a
+                        href="projects/project-14.html"
+                        class="portfolio-card"
+                    >
+
+                        <img
+                            src="assets/images/projects/project-14.jpg"
+                            alt="Investigative Journalism II"
+                            class="portfolio-card-image"
+                            loading="lazy"
+                        >
+
+
+                        <div class="portfolio-card-overlay">
+
+                            <span class="portfolio-card-number">
+                                PROJECT 14
+                            </span>
+
+                            <h3>
+                                Investigative Journalism II
+                            </h3>
+
+                            <p class="portfolio-card-type">
+                                News Package
+                            </p>
+
+                            <span class="portfolio-card-button">
+                                VIEW PROJECT PDF →
+                            </span>
+
+                        </div>
+
+                    </a>
+
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             03 — VIDEO WORKS
+        ================================================== -->
+
+        <section class="video-works">
+
+
+            <div class="portfolio-container">
+
+
+                <div class="portfolio-section-heading video-heading">
+
+                    <p class="portfolio-section-kicker">
+                        MULTIMEDIA
+                    </p>
+
+
+                    <h2>
+                        VIDEO <span>WORKS</span>
+                    </h2>
+
+
+                    <div class="portfolio-section-line"></div>
+
+
+                    <p>
+                        Selected Multimedia &amp; Journalism Projects
+                    </p>
+
+                </div>
+
+
+                <div class="video-grid">
+
+
+                    <!-- PROJECT 09 -->
+
+                    <article class="video-card">
+
+                        <div class="video-frame">
+
+                            <iframe
+                                src="https://www.youtube.com/embed/YOUR_VIDEO_ID_09"
+                                title="Project 09 — Online Journalism"
+                                loading="lazy"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                allowfullscreen
+                            ></iframe>
+
+                        </div>
+
+
+                        <div class="video-info">
+
+                            <span class="video-number">
+                                PROJECT 09
+                            </span>
+
+
+                            <h3>
+                                Online Journalism
+                            </h3>
+
+
+                            <p>
+                                Multimedia Story
+                            </p>
+
+                        </div>
+
+                    </article>
+
+
+
+                    <!-- PROJECT 10 -->
+
+                    <article class="video-card">
+
+                        <div class="video-frame">
+
+                            <iframe
+                                src="https://www.youtube.com/embed/YOUR_VIDEO_ID_10"
+                                title="Project 10 — Mobile Journalism"
+                                loading="lazy"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                allowfullscreen
+                            ></iframe>
+
+                        </div>
+
+
+                        <div class="video-info">
+
+                            <span class="video-number">
+                                PROJECT 10
+                            </span>
+
+
+                            <h3>
+                                Mobile Journalism
+                            </h3>
+
+
+                            <p>
+                                MOJO Project
+                            </p>
+
+                        </div>
+
+                    </article>
+
+
+
+                    <!-- PROJECT 13 -->
+
+                    <article class="video-card">
+
+                        <div class="video-frame">
+
+                            <iframe
+                                src="https://www.youtube.com/embed/YOUR_VIDEO_ID_13"
+                                title="Project 13 — Investigative Journalism I"
+                                loading="lazy"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                allowfullscreen
+                            ></iframe>
+
+                        </div>
+
+
+                        <div class="video-info">
+
+                            <span class="video-number">
+                                PROJECT 13
+                            </span>
+
+
+                            <h3>
+                                Investigative Journalism I
+                            </h3>
+
+
+                            <p>
+                                News Package
+                            </p>
+
+                        </div>
+
+                    </article>
+
+
+
+                    <!-- PROJECT 14 -->
+
+                    <article class="video-card">
+
+                        <div class="video-frame">
+
+                            <iframe
+                                src="https://www.youtube.com/embed/YOUR_VIDEO_ID_14"
+                                title="Project 14 — Investigative Journalism II"
+                                loading="lazy"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                allowfullscreen
+                            ></iframe>
+
+                        </div>
+
+
+                        <div class="video-info">
+
+                            <span class="video-number">
+                                PROJECT 14
+                            </span>
+
+
+                            <h3>
+                                Investigative Journalism II
+                            </h3>
+
+
+                            <p>
+                                News Package
+                            </p>
+
+                        </div>
+
+                    </article>
+
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             CONTACT CTA
+        ================================================== -->
+
+        <section class="portfolio-contact">
+
+
+            <div class="portfolio-container">
+
+
+                <div class="portfolio-contact-content">
+
+                    <p class="portfolio-section-kicker">
+                        LET'S CONNECT
+                    </p>
+
+
+                    <h2>
+                        Have a story,
+                        <span>idea or project?</span>
+                    </h2>
+
+
+                    <p>
+                        Let's connect and create something meaningful
+                        through journalism, communication and creative
+                        storytelling.
+                    </p>
+
+
+                    <a
+                        href="contact.html"
+                        class="portfolio-contact-button"
+                    >
+                        CONTACT ME
+                        <span>→</span>
+                    </a>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+    </main>
+
+
+
+    <!-- =====================================================
+         FOOTER
+    ====================================================== -->
+
+    <footer class="site-footer">
+
+        <div class="footer-container">
+
+
+            <div class="footer-brand">
+
+                <a
+                    href="index.html"
+                    class="logo"
+                >
+                    YEASIR<span>.</span>
+                </a>
+
+
+                <p>
+                    Multimedia Journalist · Reporter · Entrepreneur
+                </p>
+
+            </div>
+
+
+            <div class="footer-links">
+
+                <a href="index.html">
+                    Home
+                </a>
+
+
+                <a href="about.html">
+                    About
+                </a>
+
+
+                <a href="portfolio.html">
+                    Portfolio
+                </a>
+
+
+                <a href="business.html">
+                    Business
+                </a>
+
+
+                <a href="cv.html">
+                    CV
+                </a>
+
+
+                <a href="contact.html">
+                    Contact
+                </a>
+
+            </div>
+
+
+            <div class="footer-bottom">
+
+                <p>
+                    © 2026 Yeasir Arafat. All rights reserved.
+                </p>
+
+            </div>
+
+
+        </div>
+
+    </footer>
+
+
+
+    <!-- =====================================================
+         JAVASCRIPT
+    ====================================================== -->
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
+```
