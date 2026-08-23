@@ -14,13 +14,20 @@
         content="Investigative Journalism I — News Package by Yeasir Arafat."
     >
 
+    <meta name="author" content="Yeasir Arafat">
+
     <link rel="stylesheet" href="../style.css">
 
     <style>
 
+        /* ================================
+           PROJECT PAGE
+        ================================= */
+
         .project-page {
             min-height: 100vh;
-            padding: 150px 8% 80px;
+
+            padding: 140px 6% 80px;
 
             background:
                 radial-gradient(
@@ -31,33 +38,74 @@
                 #06111f;
         }
 
+
         .project-container {
-            max-width: 1100px;
-            margin: auto;
+            width: 100%;
+
+            max-width: 1200px;
+
+            margin: 0 auto;
         }
+
+
+        /* ================================
+           PROJECT NUMBER
+        ================================= */
 
         .project-number {
             color: #90caf9;
+
             font-size: 13px;
+
+            font-weight: 700;
+
             letter-spacing: 4px;
+
             margin-bottom: 18px;
         }
 
+
+        /* ================================
+           PROJECT TITLE
+        ================================= */
+
         .project-title {
+            color: #ffffff;
+
             font-size: clamp(45px, 7vw, 90px);
+
             line-height: 0.95;
-            margin-bottom: 20px;
+
+            font-weight: 900;
+
+            letter-spacing: -2px;
+
+            margin-bottom: 18px;
         }
+
+
+        /* ================================
+           PROJECT SUBTITLE
+        ================================= */
 
         .project-subtitle {
             color: #90caf9;
+
             font-size: 20px;
+
             letter-spacing: 2px;
-            margin-bottom: 35px;
+
+            margin-bottom: 30px;
         }
+
+
+        /* ================================
+           BLUE LINE
+        ================================= */
 
         .project-line {
             width: 90px;
+
             height: 3px;
 
             background: #2196f3;
@@ -68,10 +116,19 @@
             margin-bottom: 40px;
         }
 
+
+        /* ================================
+           VIDEO PROJECT CARD
+        ================================= */
+
         .project-card {
             display: block;
 
             position: relative;
+
+            width: 100%;
+
+            max-width: 850px;
 
             overflow: hidden;
 
@@ -95,6 +152,7 @@
                 box-shadow 0.4s ease;
         }
 
+
         .project-card:hover {
 
             transform:
@@ -108,6 +166,11 @@
                 0 20px 60px rgba(0, 0, 0, 0.35),
                 0 0 35px rgba(33, 150, 243, 0.15);
         }
+
+
+        /* ================================
+           VIDEO PREVIEW
+        ================================= */
 
         .video-preview {
 
@@ -127,9 +190,11 @@
                 );
         }
 
+
         .video-preview img {
 
             width: 100%;
+
             height: 100%;
 
             object-fit: cover;
@@ -141,13 +206,18 @@
                 filter 0.6s ease;
         }
 
+
         .project-card:hover .video-preview img {
 
             transform: scale(1.06);
 
-            filter:
-                brightness(0.72);
+            filter: brightness(0.72);
         }
+
+
+        /* ================================
+           VIDEO OVERLAY
+        ================================= */
 
         .video-overlay {
 
@@ -158,6 +228,7 @@
             display: flex;
 
             align-items: center;
+
             justify-content: center;
 
             background:
@@ -167,20 +238,28 @@
                 background 0.4s ease;
         }
 
+
         .project-card:hover .video-overlay {
 
             background:
                 rgba(3, 13, 25, 0.38);
         }
 
+
+        /* ================================
+           PLAY BUTTON
+        ================================= */
+
         .play-button {
 
             width: 74px;
+
             height: 74px;
 
             display: flex;
 
             align-items: center;
+
             justify-content: center;
 
             border-radius: 50%;
@@ -202,6 +281,7 @@
                 box-shadow 0.4s ease;
         }
 
+
         .project-card:hover .play-button {
 
             transform: scale(1.12);
@@ -210,10 +290,16 @@
                 0 0 45px rgba(33, 150, 243, 0.8);
         }
 
+
+        /* ================================
+           PROJECT INFO
+        ================================= */
+
         .project-info {
 
             padding: 30px 32px 34px;
         }
+
 
         .project-info h2 {
 
@@ -223,6 +309,7 @@
 
             margin-bottom: 12px;
         }
+
 
         .project-info p {
 
@@ -235,6 +322,11 @@
             margin-bottom: 18px;
         }
 
+
+        /* ================================
+           WATCH LABEL
+        ================================= */
+
         .watch-label {
 
             color: #90caf9;
@@ -246,15 +338,22 @@
             letter-spacing: 2px;
         }
 
+
+        /* ================================
+           BACK BUTTON
+        ================================= */
+
         .back-button {
 
             display: inline-flex;
+
+            align-items: center;
 
             margin-top: 30px;
 
             padding: 13px 22px;
 
-            color: #ffffff;
+            color: #90caf9;
 
             text-decoration: none;
 
@@ -267,7 +366,10 @@
             transition: 0.3s ease;
         }
 
+
         .back-button:hover {
+
+            color: #ffffff;
 
             border-color: #90caf9;
 
@@ -278,6 +380,52 @@
                 0 0 25px rgba(33, 150, 243, 0.2);
         }
 
+
+        /* ================================
+           MOBILE
+        ================================= */
+
+        @media (max-width: 600px) {
+
+            .project-page {
+
+                padding:
+                    110px 6% 60px;
+            }
+
+
+            .project-title {
+
+                font-size: 48px;
+
+                letter-spacing: -1px;
+            }
+
+
+            .project-info {
+
+                padding:
+                    25px 22px 28px;
+            }
+
+
+            .project-info h2 {
+
+                font-size: 24px;
+            }
+
+
+            .play-button {
+
+                width: 62px;
+
+                height: 62px;
+
+                font-size: 23px;
+            }
+
+        }
+
     </style>
 
 </head>
@@ -286,9 +434,16 @@
 <body>
 
 
+    <!-- =========================================
+         HEADER
+    ========================================== -->
+
     <header class="navbar">
 
         <div class="nav-container">
+
+
+            <!-- LOGO -->
 
             <a
                 href="../index.html"
@@ -297,6 +452,8 @@
                 YEASIR<span>.</span>
             </a>
 
+
+            <!-- BACK TO HOME -->
 
             <a
                 href="../index.html"
@@ -312,20 +469,29 @@
                 ← Back to Home
             </a>
 
+
         </div>
 
     </header>
 
+
+    <!-- =========================================
+         PROJECT 13
+    ========================================== -->
 
     <main class="project-page">
 
         <div class="project-container">
 
 
+            <!-- PROJECT NUMBER -->
+
             <div class="project-number">
                 PROJECT 13
             </div>
 
+
+            <!-- PROJECT TITLE -->
 
             <h1 class="project-title">
                 Investigative<br>
@@ -333,27 +499,44 @@
             </h1>
 
 
+            <!-- PROJECT TYPE -->
+
             <div class="project-subtitle">
                 News Package
             </div>
 
 
+            <!-- BLUE LINE -->
+
             <div class="project-line"></div>
 
 
+            <!-- =================================
+                 VIDEO CARD
+            ================================== -->
+
             <a
                 class="project-card"
+
                 href="https://www.youtube.com/watch?v=aMoa0RBRolk"
+
                 target="_blank"
+
                 rel="noopener noreferrer"
             >
 
+
+                <!-- VIDEO PREVIEW -->
+
                 <div class="video-preview">
+
 
                     <img
                         src="https://img.youtube.com/vi/aMoa0RBRolk/maxresdefault.jpg"
-                        alt="Investigative Journalism I News Package"
+
+                        alt="Investigative Journalism I — News Package"
                     >
+
 
                     <div class="video-overlay">
 
@@ -363,10 +546,14 @@
 
                     </div>
 
+
                 </div>
 
 
+                <!-- PROJECT INFO -->
+
                 <div class="project-info">
+
 
                     <h2>
                         Investigative Journalism I
@@ -382,13 +569,19 @@
                         ▶ Watch Video on YouTube
                     </div>
 
+
                 </div>
+
 
             </a>
 
 
+            <!-- =================================
+                 BACK TO PROJECTS
+            ================================== -->
+
             <a
-                href="../index.html"
+                href="../portfolio.html"
                 class="back-button"
             >
                 ← Back to Projects
