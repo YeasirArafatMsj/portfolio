@@ -3938,3 +3938,75 @@ input {
     }
 
 }
+/* =========================================================
+   NAVBAR PROJECTS DROPDOWN — FINAL FIX
+========================================================= */
+
+.projects-dropdown {
+    background: #07111f !important;
+    color: #fff !important;
+}
+
+/* ALL PROJECT ITEMS */
+.navbar .projects-dropdown a {
+    background: #07111f !important;
+    color: #fff !important;
+    border: none !important;
+    box-shadow: none !important;
+}
+
+/* NUMBER */
+.navbar .projects-dropdown a strong {
+    color: #d4af37 !important;
+}
+
+/* PROJECT NAME */
+.navbar .projects-dropdown a span {
+    color: #fff !important;
+    background: transparent !important;
+}
+
+/* SMALL TEXT */
+.navbar .projects-dropdown a span small {
+    color: rgba(255, 255, 255, 0.55) !important;
+    background: transparent !important;
+}
+
+/* HOVER */
+.navbar .projects-dropdown a:hover {
+    background: rgba(212, 175, 55, 0.10) !important;
+    color: #fff !important;
+}
+
+/* HOVER TEXT */
+.navbar .projects-dropdown a:hover span {
+    color: #fff !important;
+}
+
+/* HOVER NUMBER */
+.navbar .projects-dropdown a:hover strong {
+    color: #f2c94c !important;
+}
+
+
+/* =========================================================
+   PREVENT GENERIC LINK STYLES FROM TURNING THEM WHITE
+========================================================= */
+
+.navbar .projects-dropdown a:visited,
+.navbar .projects-dropdown a:focus,
+.navbar .projects-dropdown a:active {
+    background: #07111f !important;
+    color: #fff !important;
+}
+
+
+/* =========================================================
+   DROPDOWN CONTAINER
+========================================================= */
+
+.navbar .projects-dropdown {
+    border: 1px solid rgba(255,255,255,0.10) !important;
+    border-radius: 14px !important;
+    overflow: hidden !important;
+}
