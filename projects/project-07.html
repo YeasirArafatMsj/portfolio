@@ -1,4 +1,3 @@
-```html
 <!DOCTYPE html>
 <html lang="en">
 
@@ -185,6 +184,43 @@
 
 
         /* ================================
+           VIDEO PLAYER
+        ================================= */
+
+        .project-video {
+            width: 100%;
+
+            max-width: 850px;
+
+            margin-bottom: 45px;
+
+            overflow: hidden;
+
+            border-radius: 16px;
+
+            border:
+                1px solid rgba(144, 202, 249, 0.18);
+
+            background: #000;
+
+            box-shadow:
+                0 25px 70px rgba(0, 0, 0, 0.55),
+                0 0 35px rgba(33, 150, 243, 0.08);
+        }
+
+
+        .project-video iframe {
+            display: block;
+
+            width: 100%;
+
+            aspect-ratio: 16 / 9;
+
+            border: none;
+        }
+
+
+        /* ================================
            BUTTONS
         ================================= */
 
@@ -222,10 +258,13 @@
 
             font-weight: 700;
 
+            border: none;
+
+            cursor: pointer;
+
             transition:
                 transform 0.3s ease,
                 background 0.3s ease,
-                border-color 0.3s ease,
                 box-shadow 0.3s ease;
         }
 
@@ -405,7 +444,7 @@
             <div class="project-cover">
 
                 <img
-                    src="../assets/images/projects/project-07.jpg"
+                    src="project-07.jpg"
                     alt="Convergence Communication II — Video Art"
                 >
 
@@ -443,20 +482,34 @@
 
 
             <!-- =================================
-                 VIDEO BUTTON
+                 YOUTUBE VIDEO
+            ================================== -->
+
+            <div class="project-video">
+
+                <iframe
+                    src="https://www.youtube.com/embed/H42JPIrI4Cw"
+                    title="Mojaxiom — Video Art By Yeasir Arafat"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    allowfullscreen>
+                </iframe>
+
+            </div>
+
+
+            <!-- =================================
+                 VIDEO LINK
             ================================== -->
 
             <div class="project-actions">
 
-                <!-- PASTE PROJECT 07 VIDEO LINK HERE -->
-
                 <a
-                    href="#"
+                    href="https://youtu.be/H42JPIrI4Cw"
                     target="_blank"
                     rel="noopener noreferrer"
                     class="project-btn project-btn-primary"
                 >
-                    Watch Video ↗
+                    Open on YouTube ↗
                 </a>
 
             </div>
@@ -482,4 +535,3 @@
 </body>
 
 </html>
-```
