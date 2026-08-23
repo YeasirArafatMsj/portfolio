@@ -57,7 +57,7 @@
 
 
         /* ================================
-           PROJECT HEADER
+           HEADER
         ================================= */
 
         .project-number {
@@ -143,7 +143,6 @@
             box-shadow:
                 0 25px 70px
                 rgba(0, 0, 0, 0.55),
-
                 0 0 35px
                 rgba(33, 150, 243, 0.06);
         }
@@ -207,85 +206,6 @@
 
 
         /* ================================
-           DATA FEATURES
-        ================================= */
-
-        .data-features {
-
-            display: grid;
-
-            grid-template-columns:
-                repeat(3, minmax(0, 1fr));
-
-            gap: 15px;
-
-            margin-top: 28px;
-        }
-
-
-        .data-item {
-
-            padding: 22px;
-
-            border:
-                1px solid
-                rgba(144, 202, 249, 0.12);
-
-            border-radius: 12px;
-
-            background:
-                rgba(255, 255, 255, 0.025);
-
-            transition:
-                transform 0.3s ease,
-                border-color 0.3s ease,
-                box-shadow 0.3s ease;
-        }
-
-
-        .data-item:hover {
-
-            transform:
-                translateY(-5px);
-
-            border-color:
-                rgba(144, 202, 249, 0.45);
-
-            box-shadow:
-                0 0 25px
-                rgba(33, 150, 243, 0.12);
-        }
-
-
-        .data-item span {
-
-            display: block;
-
-            color: #90caf9;
-
-            font-size: 11px;
-
-            font-weight: 700;
-
-            text-transform: uppercase;
-
-            letter-spacing: 2px;
-
-            margin-bottom: 10px;
-        }
-
-
-        .data-item strong {
-
-            color: #ffffff;
-
-            font-size: 16px;
-
-            line-height: 1.5;
-        }
-
-
-        /* ================================
            BUTTONS
         ================================= */
 
@@ -333,8 +253,6 @@
         }
 
 
-        /* PRIMARY */
-
         .project-btn-primary {
 
             background: #1976d2;
@@ -357,8 +275,6 @@
                 rgba(33, 150, 243, 0.5);
         }
 
-
-        /* SECONDARY */
 
         .project-btn-secondary {
 
@@ -429,16 +345,6 @@
         /* ================================
            MOBILE
         ================================= */
-
-        @media (max-width: 800px) {
-
-            .data-features {
-
-                grid-template-columns: 1fr;
-            }
-
-        }
-
 
         @media (max-width: 600px) {
 
@@ -526,7 +432,6 @@
 
     <main class="project-page">
 
-
         <div class="project-container">
 
 
@@ -577,78 +482,25 @@
 
             <div class="project-card">
 
-
                 <h2>
                     Data Journalism — Data Project
                 </h2>
 
 
                 <p>
-
                     An academic data journalism project
                     focused on collecting, organizing,
                     analyzing and presenting information
                     through data-driven storytelling.
-
                 </p>
 
 
                 <p>
-
                     The project demonstrates how structured
                     data can be transformed into meaningful
                     journalistic insights using research,
                     analysis and visual presentation.
-
                 </p>
-
-
-                <!-- DATA FEATURES -->
-
-                <div class="data-features">
-
-
-                    <div class="data-item">
-
-                        <span>
-                            Research
-                        </span>
-
-                        <strong>
-                            Data Collection
-                        </strong>
-
-                    </div>
-
-
-                    <div class="data-item">
-
-                        <span>
-                            Analysis
-                        </span>
-
-                        <strong>
-                            Data Interpretation
-                        </strong>
-
-                    </div>
-
-
-                    <div class="data-item">
-
-                        <span>
-                            Presentation
-                        </span>
-
-                        <strong>
-                            Data Visualization
-                        </strong>
-
-                    </div>
-
-
-                </div>
-
 
             </div>
 
