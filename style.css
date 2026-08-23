@@ -3467,3 +3467,474 @@ input {
     }
 
 }
+
+/* =========================================================
+   YEASIR CV PAGE — TYPOGRAPHY BALANCE FIX
+   Paste at the VERY END of style.css
+========================================================= */
+
+
+/* =========================================================
+   GLOBAL CV TYPOGRAPHY
+========================================================= */
+
+.cv-hero h1 {
+    font-size: clamp(3.2rem, 7vw, 6.8rem);
+    line-height: 0.95;
+    letter-spacing: -0.045em;
+    max-width: 900px;
+}
+
+.cv-hero > .page-hero-content > p:not(.section-kicker) {
+    font-size: clamp(0.95rem, 1.4vw, 1.15rem);
+    line-height: 1.7;
+    max-width: 720px;
+}
+
+
+/* =========================================================
+   SECTION HEADINGS
+========================================================= */
+
+.cv-profile-section h2,
+.cv-dark-section h2,
+.section-padding .section-heading h2 {
+    font-size: clamp(2rem, 4vw, 3.8rem);
+    line-height: 1.05;
+    letter-spacing: -0.035em;
+}
+
+.section-kicker {
+    font-size: 0.72rem;
+    line-height: 1.4;
+    letter-spacing: 0.18em;
+    font-weight: 700;
+}
+
+.section-heading {
+    margin-bottom: 55px;
+}
+
+
+/* =========================================================
+   PROFILE
+========================================================= */
+
+.cv-profile-main h2 {
+    font-size: clamp(2.5rem, 5vw, 5rem);
+    line-height: 0.95;
+    letter-spacing: -0.045em;
+    margin-bottom: 15px;
+}
+
+.cv-profile-title {
+    font-size: 1rem;
+    line-height: 1.6;
+    letter-spacing: 0.02em;
+}
+
+.cv-contact-info p {
+    font-size: 0.88rem;
+    line-height: 1.5;
+}
+
+.cv-contact-info strong {
+    font-size: 0.68rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+}
+
+
+/* =========================================================
+   CAREER OBJECTIVE
+========================================================= */
+
+.cv-text-block {
+    max-width: 850px;
+}
+
+.cv-text-block p {
+    font-size: 1.05rem;
+    line-height: 1.9;
+    margin-bottom: 22px;
+}
+
+
+/* =========================================================
+   EDUCATION TIMELINE
+========================================================= */
+
+.cv-timeline-content {
+    padding-left: 5px;
+}
+
+.cv-date {
+    display: inline-block;
+    font-size: 0.7rem;
+    line-height: 1.4;
+    letter-spacing: 0.15em;
+    font-weight: 700;
+    margin-bottom: 12px;
+}
+
+.cv-timeline-content h3 {
+    font-size: clamp(1.25rem, 2vw, 1.8rem);
+    line-height: 1.25;
+    letter-spacing: -0.02em;
+    max-width: 800px;
+    margin-bottom: 10px;
+}
+
+.cv-institution {
+    font-size: 0.92rem;
+    line-height: 1.5;
+    margin-bottom: 22px;
+}
+
+.cv-meta-grid {
+    gap: 12px 30px;
+}
+
+.cv-meta-grid span {
+    font-size: 0.82rem;
+    line-height: 1.5;
+}
+
+.cv-meta-grid strong {
+    display: block;
+    font-size: 0.65rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    margin-bottom: 3px;
+}
+
+.cv-timeline-number {
+    font-size: 0.7rem;
+    letter-spacing: 0.12em;
+}
+
+
+/* =========================================================
+   PROJECT CARDS
+========================================================= */
+
+.cv-project-card span {
+    font-size: 0.7rem;
+    letter-spacing: 0.15em;
+    font-weight: 700;
+}
+
+.cv-project-card h3 {
+    font-size: clamp(1.15rem, 2vw, 1.55rem);
+    line-height: 1.2;
+    letter-spacing: -0.015em;
+}
+
+.cv-project-card p {
+    font-size: 0.78rem;
+    line-height: 1.5;
+}
+
+.cv-project-card strong {
+    font-size: 1.15rem;
+}
+
+
+/* =========================================================
+   SKILLS
+========================================================= */
+
+.cv-skill-number {
+    font-size: 0.7rem;
+    letter-spacing: 0.14em;
+}
+
+.cv-skill-card h3 {
+    font-size: clamp(1.25rem, 2vw, 1.65rem);
+    line-height: 1.2;
+    margin-bottom: 22px;
+}
+
+.cv-skill-card li {
+    font-size: 0.9rem;
+    line-height: 1.7;
+}
+
+
+/* =========================================================
+   LANGUAGE
+========================================================= */
+
+.language-card h3 {
+    font-size: clamp(1.4rem, 2.5vw, 2rem);
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+}
+
+.language-levels {
+    gap: 10px;
+}
+
+.language-levels span {
+    font-size: 0.82rem;
+    line-height: 1.5;
+}
+
+.language-levels strong {
+    font-size: 0.78rem;
+}
+
+
+/* =========================================================
+   PERSONAL PROFILE
+========================================================= */
+
+.personal-profile-grid {
+    gap: 1px;
+}
+
+.personal-profile-grid span {
+    display: block;
+    font-size: 0.65rem;
+    line-height: 1.4;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    margin-bottom: 7px;
+}
+
+.personal-profile-grid strong {
+    display: block;
+    font-size: 0.95rem;
+    line-height: 1.5;
+    font-weight: 500;
+}
+
+
+/* =========================================================
+   REFERENCES
+========================================================= */
+
+.reference-number {
+    font-size: 0.7rem;
+    letter-spacing: 0.14em;
+}
+
+.reference-card h3 {
+    font-size: clamp(1.25rem, 2vw, 1.7rem);
+    line-height: 1.2;
+    margin-bottom: 8px;
+}
+
+.reference-position {
+    font-size: 0.82rem;
+    line-height: 1.6;
+}
+
+.reference-contact {
+    margin-top: 20px;
+}
+
+.reference-contact a {
+    font-size: 0.8rem;
+    line-height: 1.5;
+}
+
+
+/* =========================================================
+   DECLARATION
+========================================================= */
+
+.cv-declaration {
+    font-size: clamp(1.25rem, 2.4vw, 2rem);
+    line-height: 1.6;
+    letter-spacing: -0.015em;
+    max-width: 850px;
+}
+
+.statement-author {
+    font-size: 0.82rem;
+    letter-spacing: 0.08em;
+}
+
+
+/* =========================================================
+   CTA
+========================================================= */
+
+.contact-cta-content h2 {
+    font-size: clamp(2.2rem, 5vw, 4.5rem);
+    line-height: 1;
+    letter-spacing: -0.04em;
+}
+
+.contact-cta-content > p:not(.section-kicker) {
+    font-size: 1rem;
+    line-height: 1.7;
+}
+
+
+/* =========================================================
+   BUTTON
+========================================================= */
+
+.section-button {
+    font-size: 0.78rem;
+    letter-spacing: 0.1em;
+    line-height: 1;
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+.footer-brand p {
+    font-size: 0.78rem;
+    line-height: 1.6;
+}
+
+.footer-links a {
+    font-size: 0.76rem;
+    letter-spacing: 0.05em;
+}
+
+.footer-bottom p {
+    font-size: 0.7rem;
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 900px) {
+
+    .cv-hero h1 {
+        font-size: clamp(2.8rem, 9vw, 5rem);
+    }
+
+    .section-heading {
+        margin-bottom: 40px;
+    }
+
+    .cv-text-block p {
+        font-size: 1rem;
+        line-height: 1.8;
+    }
+
+    .cv-timeline-content h3 {
+        font-size: 1.35rem;
+    }
+
+    .cv-declaration {
+        font-size: 1.3rem;
+    }
+
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 600px) {
+
+    .cv-hero h1 {
+        font-size: clamp(2.5rem, 13vw, 4rem);
+        line-height: 0.95;
+    }
+
+    .cv-hero > .page-hero-content > p:not(.section-kicker) {
+        font-size: 0.88rem;
+        line-height: 1.6;
+    }
+
+    .section-heading {
+        margin-bottom: 32px;
+    }
+
+    .section-padding .section-heading h2 {
+        font-size: 2.15rem;
+        line-height: 1.05;
+    }
+
+    .cv-profile-main h2 {
+        font-size: 2.8rem;
+    }
+
+    .cv-profile-title {
+        font-size: 0.88rem;
+    }
+
+    .cv-contact-info p {
+        font-size: 0.8rem;
+    }
+
+    .cv-text-block p {
+        font-size: 0.94rem;
+        line-height: 1.75;
+    }
+
+    .cv-timeline-content h3 {
+        font-size: 1.2rem;
+        line-height: 1.35;
+    }
+
+    .cv-institution {
+        font-size: 0.82rem;
+    }
+
+    .cv-meta-grid span {
+        font-size: 0.76rem;
+    }
+
+    .cv-project-card h3 {
+        font-size: 1.15rem;
+    }
+
+    .cv-project-card p {
+        font-size: 0.72rem;
+    }
+
+    .cv-skill-card h3 {
+        font-size: 1.3rem;
+    }
+
+    .cv-skill-card li {
+        font-size: 0.82rem;
+    }
+
+    .language-card h3 {
+        font-size: 1.5rem;
+    }
+
+    .language-levels span {
+        font-size: 0.76rem;
+    }
+
+    .personal-profile-grid strong {
+        font-size: 0.85rem;
+    }
+
+    .reference-card h3 {
+        font-size: 1.3rem;
+    }
+
+    .reference-position {
+        font-size: 0.76rem;
+    }
+
+    .reference-contact a {
+        font-size: 0.74rem;
+    }
+
+    .cv-declaration {
+        font-size: 1.15rem;
+        line-height: 1.65;
+    }
+
+    .contact-cta-content h2 {
+        font-size: 2.5rem;
+    }
+
+}
