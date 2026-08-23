@@ -1,3 +1,4 @@
+```css
 /* ================================
    RESET
 ================================ */
@@ -80,7 +81,7 @@ body {
 
 
 /* ================================
-   NAV MENU
+   MAIN NAVIGATION
 ================================ */
 
 .nav-menu {
@@ -93,7 +94,9 @@ body {
 }
 
 
-/* ONLY MAIN NAV LINKS */
+/* ================================
+   MAIN NAV LINKS
+================================ */
 
 .nav-menu > a,
 .nav-menu > .nav-dropdown > .projects-link {
@@ -123,7 +126,9 @@ body {
 }
 
 
-/* MAIN NAV UNDERLINE */
+/* ================================
+   NAV UNDERLINE
+================================ */
 
 .nav-menu > a::after,
 .nav-menu > .nav-dropdown > .projects-link::after {
@@ -146,8 +151,6 @@ body {
     transition: width 0.3s ease;
 }
 
-
-/* MAIN NAV HOVER */
 
 .nav-menu > a:hover,
 .nav-menu > a.active,
@@ -184,19 +187,19 @@ body {
 }
 
 
-/* PROJECTS TEXT ONLY */
+/* ================================
+   PROJECTS BUTTON
+================================ */
 
 .projects-link {
 
     cursor: default;
-
-    text-transform: uppercase;
-
 }
 
 
 /* ================================
    PROJECTS DROPDOWN
+   HIDDEN BY DEFAULT
 ================================ */
 
 .projects-dropdown {
@@ -215,6 +218,25 @@ body {
 
     padding: 12px;
 
+    background:
+        linear-gradient(
+            145deg,
+            rgba(7, 25, 43, 0.98),
+            rgba(3, 14, 27, 0.99)
+        );
+
+    border:
+        1px solid rgba(144, 202, 249, 0.22);
+
+    border-radius: 14px;
+
+    box-shadow:
+        0 25px 70px rgba(0, 0, 0, 0.65),
+        0 0 35px rgba(33, 150, 243, 0.08);
+
+    backdrop-filter: blur(22px);
+    -webkit-backdrop-filter: blur(22px);
+
     transform:
         translateX(-50%)
         translateY(15px);
@@ -225,41 +247,18 @@ body {
 
     pointer-events: none;
 
-
-    background:
-        linear-gradient(
-            145deg,
-            rgba(7, 25, 43, 0.98),
-            rgba(3, 14, 27, 0.99)
-        );
-
-
-    border:
-        1px solid rgba(144, 202, 249, 0.22);
-
-    border-radius: 14px;
-
-
-    box-shadow:
-        0 25px 70px rgba(0, 0, 0, 0.65),
-        0 0 35px rgba(33, 150, 243, 0.08);
-
-
-    backdrop-filter: blur(22px);
-    -webkit-backdrop-filter: blur(22px);
-
-
     transition:
         opacity 0.25s ease,
         visibility 0.25s ease,
         transform 0.25s ease;
 
-
     z-index: 5000;
 }
 
 
-/* SHOW ONLY WHEN MOUSE IS ON PROJECTS */
+/* ================================
+   SHOW DROPDOWN ONLY ON HOVER
+================================ */
 
 .nav-dropdown:hover > .projects-dropdown {
 
@@ -276,7 +275,7 @@ body {
 
 
 /* ================================
-   DROPDOWN TOP LIGHT
+   DROPDOWN TOP GLOW
 ================================ */
 
 .projects-dropdown::before {
@@ -322,16 +321,13 @@ body {
 
     margin: 2px 0;
 
-
     color: #ffffff;
 
     text-decoration: none;
 
-
     border-radius: 9px;
 
     border: 1px solid transparent;
-
 
     transition:
         background 0.25s ease,
@@ -341,7 +337,9 @@ body {
 }
 
 
-/* PROJECT NUMBER */
+/* ================================
+   PROJECT NUMBER
+================================ */
 
 .projects-dropdown > a > strong {
 
@@ -361,7 +359,9 @@ body {
 }
 
 
-/* PROJECT TEXT */
+/* ================================
+   PROJECT TEXT
+================================ */
 
 .projects-dropdown > a > span {
 
@@ -381,7 +381,9 @@ body {
 }
 
 
-/* PROJECT SUBTITLE */
+/* ================================
+   PROJECT SUBTITLE
+================================ */
 
 .projects-dropdown > a > span > small {
 
@@ -398,7 +400,9 @@ body {
 }
 
 
-/* PROJECT HOVER */
+/* ================================
+   PROJECT HOVER
+================================ */
 
 .projects-dropdown > a:hover {
 
@@ -440,10 +444,12 @@ body {
 ================================ */
 
 .projects-dropdown::-webkit-scrollbar {
+
     width: 5px;
 }
 
 .projects-dropdown::-webkit-scrollbar-track {
+
     background: transparent;
 }
 
@@ -1197,3 +1203,4 @@ body {
     }
 
 }
+```
