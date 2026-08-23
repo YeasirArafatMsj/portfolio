@@ -1,3 +1,7 @@
+/* ================================
+   RESET
+================================ */
+
 * {
     margin: 0;
     padding: 0;
@@ -9,17 +13,724 @@ html {
 }
 
 body {
-    font-family: Arial, sans-serif;
-    background: #ffffff;
-    color: #0d47a1;
-    min-height: 100vh;
+    font-family: Arial, Helvetica, sans-serif;
+    background: #06111f;
+    color: #ffffff;
+    overflow-x: hidden;
 }
 
-h1 {
-    font-size: 48px;
-    margin-bottom: 10px;
+
+/* ================================
+   NAVBAR
+================================ */
+
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+
+    z-index: 1000;
+
+    background: rgba(4, 15, 28, 0.75);
+
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+
+    border-bottom: 1px solid rgba(144, 202, 249, 0.12);
 }
 
-p {
+.nav-container {
+    width: 92%;
+    max-width: 1400px;
+
+    margin: auto;
+
+    min-height: 78px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 30px;
+}
+
+
+/* ================================
+   LOGO
+================================ */
+
+.logo {
+    text-decoration: none;
+
+    color: #ffffff;
+
+    font-size: 23px;
+
+    font-weight: 800;
+
+    letter-spacing: 2px;
+
+    white-space: nowrap;
+}
+
+.logo span {
+    color: #2196f3;
+}
+
+
+/* ================================
+   NAV MENU
+================================ */
+
+.nav-menu {
+    display: flex;
+    align-items: center;
+
+    gap: 25px;
+}
+
+.nav-menu a {
+    position: relative;
+
+    color: #dbeeff;
+
+    text-decoration: none;
+
+    font-size: 13px;
+
+    text-transform: uppercase;
+
+    letter-spacing: 1px;
+
+    padding: 8px 0;
+
+    transition: color 0.3s ease;
+}
+
+.nav-menu a::after {
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+    bottom: 0;
+
+    width: 0;
+    height: 2px;
+
+    background: #2196f3;
+
+    box-shadow: 0 0 12px rgba(33, 150, 243, 0.9);
+
+    transition: width 0.3s ease;
+}
+
+.nav-menu a:hover,
+.nav-menu a.active {
+    color: #ffffff;
+}
+
+.nav-menu a:hover::after,
+.nav-menu a.active::after {
+    width: 100%;
+}
+
+
+/* ================================
+   SEARCH
+================================ */
+
+.nav-search {
+    display: flex;
+
+    align-items: center;
+
+    gap: 8px;
+
+    width: 135px;
+
+    padding: 8px 10px;
+
+    border: 1px solid rgba(144, 202, 249, 0.25);
+
+    border-radius: 20px;
+
+    background: rgba(255, 255, 255, 0.04);
+
+    transition: all 0.3s ease;
+}
+
+.nav-search:focus-within {
+    width: 175px;
+
+    border-color: rgba(33, 150, 243, 0.8);
+
+    box-shadow:
+        0 0 12px rgba(33, 150, 243, 0.2);
+}
+
+.search-icon {
+    color: #90caf9;
+
     font-size: 20px;
+
+    line-height: 1;
+}
+
+.nav-search input {
+    width: 100%;
+
+    border: none;
+    outline: none;
+
+    background: transparent;
+
+    color: #ffffff;
+
+    font-size: 13px;
+}
+
+.nav-search input::placeholder {
+    color: #8fa9bd;
+}
+
+
+/* ================================
+   MOBILE MENU BUTTON
+================================ */
+
+.menu-toggle {
+    display: none;
+
+    border: none;
+
+    background: transparent;
+
+    color: #ffffff;
+
+    font-size: 27px;
+
+    cursor: pointer;
+}
+
+
+/* ================================
+   HERO
+================================ */
+
+.hero {
+    position: relative;
+
+    min-height: 100vh;
+
+    display: flex;
+
+    align-items: center;
+
+    overflow: hidden;
+}
+
+
+/* ================================
+   HERO BACKGROUND
+================================ */
+
+.hero-background {
+    position: absolute;
+
+    inset: 0;
+
+    background-image:
+        url("assets/images/journey/ulab.jpg");
+
+    background-size: cover;
+
+    background-position: center;
+
+    transform: scale(1.05);
+
+    animation: heroZoom 14s ease-in-out infinite alternate;
+}
+
+@keyframes heroZoom {
+
+    from {
+        transform: scale(1.05);
+    }
+
+    to {
+        transform: scale(1.12);
+    }
+
+}
+
+
+/* ================================
+   HERO OVERLAY
+================================ */
+
+.hero-overlay {
+    position: absolute;
+
+    inset: 0;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(3, 13, 25, 0.96) 0%,
+            rgba(3, 13, 25, 0.82) 40%,
+            rgba(3, 13, 25, 0.55) 70%,
+            rgba(3, 13, 25, 0.82) 100%
+        );
+}
+
+
+/* ================================
+   HERO CONTENT
+================================ */
+
+.hero-content {
+    position: relative;
+
+    z-index: 2;
+
+    width: 92%;
+    max-width: 1400px;
+
+    margin: 0 auto;
+
+    padding-top: 90px;
+}
+
+.hero-label {
+    color: #90caf9;
+
+    font-size: 13px;
+
+    letter-spacing: 5px;
+
+    font-weight: 600;
+
+    margin-bottom: 22px;
+
+    animation: fadeUp 1s ease forwards;
+}
+
+.hero-title {
+    font-size: clamp(65px, 9vw, 145px);
+
+    line-height: 0.82;
+
+    font-weight: 900;
+
+    letter-spacing: -5px;
+
+    max-width: 900px;
+
+    color: #ffffff;
+
+    animation: titleReveal 1.2s ease forwards;
+}
+
+.hero-title span {
+    color: #90caf9;
+
+    text-shadow:
+        0 0 20px rgba(144, 202, 249, 0.25);
+}
+
+
+/* ================================
+   LIGHT SWEEP EFFECT
+================================ */
+
+.hero-title {
+    position: relative;
+
+    overflow: hidden;
+}
+
+.hero-title::after {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: -120%;
+
+    width: 60%;
+    height: 100%;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(255, 255, 255, 0.35),
+            transparent
+        );
+
+    transform: skewX(-20deg);
+
+    animation: titleLight 5s ease-in-out infinite;
+}
+
+@keyframes titleLight {
+
+    0% {
+        left: -120%;
+    }
+
+    45% {
+        left: 140%;
+    }
+
+    100% {
+        left: 140%;
+    }
+
+}
+
+
+/* ================================
+   HERO LINE
+================================ */
+
+.hero-line {
+    width: 90px;
+
+    height: 3px;
+
+    margin: 30px 0 18px;
+
+    background: #2196f3;
+
+    box-shadow:
+        0 0 15px rgba(33, 150, 243, 0.7);
+
+    animation: lineGrow 1.2s ease forwards;
+}
+
+@keyframes lineGrow {
+
+    from {
+        width: 0;
+    }
+
+    to {
+        width: 90px;
+    }
+
+}
+
+
+/* ================================
+   HERO TEXT
+================================ */
+
+.hero-subtitle {
+    font-size: 23px;
+
+    color: #dbeeff;
+
+    letter-spacing: 2px;
+
+    margin-bottom: 15px;
+
+    animation: fadeUp 1.3s ease forwards;
+}
+
+.hero-subtitle span {
+    color: #2196f3;
+
+    margin: 0 8px;
+}
+
+.hero-description {
+    max-width: 570px;
+
+    color: #b6c9d8;
+
+    font-size: 17px;
+
+    line-height: 1.8;
+
+    margin-bottom: 32px;
+
+    animation: fadeUp 1.5s ease forwards;
+}
+
+
+/* ================================
+   BUTTONS
+================================ */
+
+.hero-buttons {
+    display: flex;
+
+    gap: 15px;
+
+    flex-wrap: wrap;
+
+    animation: fadeUp 1.7s ease forwards;
+}
+
+.btn {
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    min-width: 170px;
+
+    padding: 14px 25px;
+
+    text-decoration: none;
+
+    text-transform: uppercase;
+
+    letter-spacing: 1.5px;
+
+    font-size: 12px;
+
+    font-weight: 700;
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease,
+        background 0.3s ease;
+}
+
+.btn-primary {
+    color: #ffffff;
+
+    background: #1976d2;
+
+    box-shadow:
+        0 0 20px rgba(33, 150, 243, 0.25);
+}
+
+.btn-primary:hover {
+    transform: translateY(-4px);
+
+    background: #2196f3;
+
+    box-shadow:
+        0 0 30px rgba(33, 150, 243, 0.5);
+}
+
+.btn-secondary {
+    color: #ffffff;
+
+    border: 1px solid rgba(144, 202, 249, 0.5);
+
+    background: rgba(255, 255, 255, 0.04);
+}
+
+.btn-secondary:hover {
+    transform: translateY(-4px);
+
+    border-color: #90caf9;
+
+    box-shadow:
+        0 0 25px rgba(144, 202, 249, 0.2);
+}
+
+
+/* ================================
+   SCROLL INDICATOR
+================================ */
+
+.hero-scroll {
+    position: absolute;
+
+    z-index: 3;
+
+    right: 5%;
+
+    bottom: 35px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 14px;
+
+    color: #9db2c2;
+
+    font-size: 10px;
+
+    letter-spacing: 2px;
+
+    writing-mode: vertical-rl;
+}
+
+.scroll-line {
+    width: 1px;
+
+    height: 55px;
+
+    background: #2196f3;
+
+    box-shadow:
+        0 0 10px rgba(33, 150, 243, 0.7);
+
+    animation: scrollPulse 2s ease-in-out infinite;
+}
+
+@keyframes scrollPulse {
+
+    0%,
+    100% {
+        opacity: 0.3;
+        transform: scaleY(0.6);
+    }
+
+    50% {
+        opacity: 1;
+        transform: scaleY(1);
+    }
+
+}
+
+
+/* ================================
+   GENERAL ANIMATIONS
+================================ */
+
+@keyframes fadeUp {
+
+    from {
+        opacity: 0;
+
+        transform: translateY(25px);
+    }
+
+    to {
+        opacity: 1;
+
+        transform: translateY(0);
+    }
+
+}
+
+@keyframes titleReveal {
+
+    from {
+        opacity: 0;
+
+        transform: translateY(45px);
+
+        filter: blur(8px);
+    }
+
+    to {
+        opacity: 1;
+
+        transform: translateY(0);
+
+        filter: blur(0);
+    }
+
+}
+
+
+/* ================================
+   RESPONSIVE
+================================ */
+
+@media (max-width: 1100px) {
+
+    .nav-menu {
+        gap: 15px;
+    }
+
+    .nav-menu a {
+        font-size: 11px;
+    }
+
+    .nav-search {
+        width: 115px;
+    }
+
+}
+
+
+@media (max-width: 850px) {
+
+    .nav-menu,
+    .nav-search {
+        display: none;
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+
+    .hero-content {
+        width: 88%;
+    }
+
+    .hero-title {
+        font-size: clamp(55px, 14vw, 100px);
+
+        letter-spacing: -3px;
+    }
+
+    .hero-description {
+        font-size: 15px;
+
+        max-width: 500px;
+    }
+
+    .hero-scroll {
+        display: none;
+    }
+
+}
+
+
+@media (max-width: 500px) {
+
+    .nav-container {
+        min-height: 68px;
+    }
+
+    .logo {
+        font-size: 19px;
+    }
+
+    .hero-content {
+        padding-top: 70px;
+    }
+
+    .hero-label {
+        font-size: 10px;
+
+        letter-spacing: 3px;
+    }
+
+    .hero-title {
+        font-size: 58px;
+
+        line-height: 0.88;
+
+        letter-spacing: -2px;
+    }
+
+    .hero-subtitle {
+        font-size: 17px;
+    }
+
+    .hero-description {
+        font-size: 14px;
+
+        line-height: 1.7;
+    }
+
+    .btn {
+        width: 100%;
+    }
+
 }
