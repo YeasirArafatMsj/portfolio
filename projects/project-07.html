@@ -99,14 +99,12 @@
         ================================= */
 
         .project-card-link {
-
             display: block;
 
             width: 100%;
             max-width: 850px;
 
             text-decoration: none;
-
             color: inherit;
 
             margin-bottom: 45px;
@@ -114,7 +112,6 @@
 
 
         .project-card {
-
             width: 100%;
 
             overflow: hidden;
@@ -143,7 +140,6 @@
 
 
         .project-card:hover {
-
             transform: translateY(-7px);
 
             border-color:
@@ -160,7 +156,6 @@
         ================================= */
 
         .project-card-image {
-
             position: relative;
 
             width: 100%;
@@ -172,12 +167,15 @@
 
 
         .project-card-image img {
-
             display: block;
 
             width: 100%;
 
-            height: auto;
+            height: auto !important;
+
+            max-width: 100%;
+
+            object-fit: contain !important;
 
             transition:
                 transform 0.6s ease;
@@ -186,7 +184,6 @@
 
         .project-card:hover
         .project-card-image img {
-
             transform: scale(1.035);
         }
 
@@ -196,7 +193,6 @@
         ================================= */
 
         .project-play {
-
             position: absolute;
 
             inset: 0;
@@ -204,7 +200,6 @@
             display: flex;
 
             align-items: center;
-
             justify-content: center;
 
             background:
@@ -217,14 +212,16 @@
 
         .project-card:hover
         .project-play {
-
             background:
                 rgba(0, 0, 0, 0.28);
         }
 
 
-        .play-circle {
+        /* ================================
+           PLAY BUTTON
+        ================================= */
 
+        .play-circle {
             width: 72px;
             height: 72px;
 
@@ -260,7 +257,6 @@
 
         .project-card:hover
         .play-circle {
-
             transform: scale(1);
 
             box-shadow:
@@ -274,13 +270,11 @@
         ================================= */
 
         .project-card-content {
-
             padding: 32px;
         }
 
 
         .project-card-content h2 {
-
             color: #ffffff;
 
             font-size: 26px;
@@ -292,7 +286,6 @@
 
 
         .project-card-content p {
-
             color: #b6c9d8;
 
             font-size: 16px;
@@ -304,7 +297,6 @@
 
 
         .project-card-content p:last-of-type {
-
             margin-bottom: 22px;
         }
 
@@ -314,7 +306,6 @@
         ================================= */
 
         .watch-label {
-
             display: inline-flex;
 
             align-items: center;
@@ -345,7 +336,6 @@
 
         .project-card:hover
         .watch-label {
-
             color: #ffffff;
 
             border-color: #90caf9;
@@ -360,7 +350,6 @@
         ================================= */
 
         .back-button {
-
             display: inline-flex;
 
             align-items: center;
@@ -382,7 +371,6 @@
 
 
         .back-button:hover {
-
             color: #ffffff;
 
             border-color: #90caf9;
@@ -402,13 +390,11 @@
         @media (max-width: 600px) {
 
             .project-page {
-
                 padding: 110px 6% 60px;
             }
 
 
             .project-title {
-
                 font-size: 48px;
 
                 letter-spacing: -1px;
@@ -416,25 +402,21 @@
 
 
             .project-card-content {
-
                 padding: 24px;
             }
 
 
             .project-card-content h2 {
-
                 font-size: 22px;
             }
 
 
             .project-card-content p {
-
                 font-size: 15px;
             }
 
 
             .play-circle {
-
                 width: 60px;
                 height: 60px;
 
@@ -528,6 +510,7 @@
                 target="_blank"
                 rel="noopener noreferrer"
                 class="project-card-link"
+                aria-label="Watch Convergence Communication II Video"
             >
 
                 <article class="project-card">
@@ -538,12 +521,12 @@
                     <div class="project-card-image">
 
                         <img
-                            src="project-07.jpg"
+                            src="../assets/images/projects/project-07.jpg"
                             alt="Convergence Communication II — Video Art"
                         >
 
 
-                        <!-- PLAY -->
+                        <!-- PLAY OVERLAY -->
 
                         <div class="project-play">
 
@@ -588,13 +571,14 @@
 
                     </div>
 
+
                 </article>
 
             </a>
 
 
             <!-- =================================
-                 BACK
+                 BACK BUTTON
             ================================== -->
 
             <a
