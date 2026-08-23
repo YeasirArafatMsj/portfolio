@@ -14,92 +14,314 @@
         content="Communication Research — Research Proposal by Yeasir Arafat."
     >
 
+    <meta name="author" content="Yeasir Arafat">
+
     <link rel="stylesheet" href="../style.css">
 
     <style>
 
+        /* ================================
+           PROJECT PAGE
+        ================================= */
+
         .project-page {
+
             min-height: 100vh;
-            padding: 150px 8% 80px;
+
+            padding: 140px 6% 80px;
+
             background:
-                radial-gradient(
-                    circle at 80% 20%,
-                    rgba(33, 150, 243, 0.12),
-                    transparent 35%
-                ),
-                #06111f;
+                linear-gradient(
+                    135deg,
+                    #06111f,
+                    #081a2d
+                );
         }
+
 
         .project-container {
-            max-width: 1100px;
-            margin: auto;
+
+            width: 100%;
+
+            max-width: 1200px;
+
+            margin: 0 auto;
         }
 
+
+        /* ================================
+           HEADER
+        ================================= */
+
         .project-number {
+
             color: #90caf9;
+
             font-size: 13px;
+
+            font-weight: 700;
+
             letter-spacing: 4px;
+
             margin-bottom: 18px;
         }
 
+
         .project-title {
+
+            color: #ffffff;
+
             font-size: clamp(45px, 7vw, 90px);
+
             line-height: 0.95;
-            margin-bottom: 20px;
+
+            font-weight: 900;
+
+            letter-spacing: -2px;
+
+            margin-bottom: 18px;
         }
 
-        .project-subtitle {
+
+        .project-type {
+
             color: #90caf9;
+
             font-size: 20px;
+
             letter-spacing: 2px;
-            margin-bottom: 35px;
+
+            margin-bottom: 45px;
         }
 
-        .project-line {
-            width: 90px;
-            height: 3px;
-            background: #2196f3;
+
+        /* ================================
+           COVER IMAGE
+        ================================= */
+
+        .project-cover {
+
+            width: 100%;
+
+            max-width: 850px;
+
+            margin-bottom: 45px;
+
+            overflow: hidden;
+
+            border-radius: 14px;
+
+            border: 1px solid
+                rgba(144, 202, 249, 0.18);
+
+            background: #081827;
+
             box-shadow:
-                0 0 20px rgba(33, 150, 243, 0.7);
+                0 25px 70px
+                rgba(0, 0, 0, 0.55),
+                0 0 35px
+                rgba(33, 150, 243, 0.06);
+        }
+
+
+        .project-cover img {
+
+            display: block;
+
+            width: 100%;
+
+            height: auto;
+        }
+
+
+        /* ================================
+           DESCRIPTION
+        ================================= */
+
+        .project-description {
+
+            max-width: 800px;
+
+            color: #b6c9d8;
+
+            font-size: 17px;
+
+            line-height: 1.9;
+
             margin-bottom: 40px;
         }
 
-        .project-card {
-            padding: 35px;
-            border: 1px solid rgba(144, 202, 249, 0.18);
-            border-radius: 16px;
-            background: rgba(255, 255, 255, 0.035);
-            backdrop-filter: blur(15px);
+
+        /* ================================
+           BUTTONS
+        ================================= */
+
+        .project-actions {
+
+            display: flex;
+
+            flex-wrap: wrap;
+
+            gap: 15px;
+
+            margin-bottom: 50px;
         }
 
-        .project-card h2 {
-            margin-bottom: 15px;
-            font-size: 25px;
-        }
 
-        .project-card p {
-            color: #b6c9d8;
-            font-size: 16px;
-            line-height: 1.8;
-            margin-bottom: 20px;
-        }
+        .project-btn {
 
-        .back-button {
             display: inline-flex;
-            margin-top: 30px;
-            padding: 13px 22px;
-            color: #ffffff;
+
+            align-items: center;
+
+            justify-content: center;
+
+            min-width: 180px;
+
+            padding: 14px 24px;
+
             text-decoration: none;
-            border: 1px solid rgba(144, 202, 249, 0.4);
-            background: rgba(255, 255, 255, 0.04);
-            transition: 0.3s ease;
+
+            text-transform: uppercase;
+
+            letter-spacing: 1.3px;
+
+            font-size: 12px;
+
+            font-weight: 700;
+
+            transition:
+                transform 0.3s ease,
+                background 0.3s ease,
+                border-color 0.3s ease,
+                box-shadow 0.3s ease;
         }
 
-        .back-button:hover {
-            border-color: #90caf9;
-            transform: translateY(-3px);
+
+        .project-btn-primary {
+
+            color: #ffffff;
+
+            background: #1976d2;
+
             box-shadow:
-                0 0 25px rgba(33, 150, 243, 0.2);
+                0 0 20px
+                rgba(33, 150, 243, 0.25);
+        }
+
+
+        .project-btn-primary:hover {
+
+            transform: translateY(-3px);
+
+            background: #2196f3;
+
+            box-shadow:
+                0 0 30px
+                rgba(33, 150, 243, 0.5);
+        }
+
+
+        .project-btn-secondary {
+
+            color: #ffffff;
+
+            background:
+                rgba(255, 255, 255, 0.04);
+
+            border: 1px solid
+                rgba(144, 202, 249, 0.45);
+        }
+
+
+        .project-btn-secondary:hover {
+
+            transform: translateY(-3px);
+
+            border-color: #90caf9;
+
+            box-shadow:
+                0 0 25px
+                rgba(144, 202, 249, 0.2);
+        }
+
+
+        /* ================================
+           BACK TO PROJECTS
+        ================================= */
+
+        .back-projects {
+
+            display: inline-flex;
+
+            align-items: center;
+
+            gap: 8px;
+
+            color: #90caf9;
+
+            text-decoration: none;
+
+            font-size: 13px;
+
+            letter-spacing: 1px;
+
+            transition:
+                color 0.3s ease,
+                transform 0.3s ease;
+        }
+
+
+        .back-projects:hover {
+
+            color: #ffffff;
+
+            transform: translateX(-4px);
+        }
+
+
+        /* ================================
+           MOBILE
+        ================================= */
+
+        @media (max-width: 600px) {
+
+            .project-page {
+
+                padding:
+                    110px 6% 60px;
+            }
+
+
+            .project-title {
+
+                font-size: 48px;
+
+                letter-spacing: -1px;
+            }
+
+
+            .project-type {
+
+                font-size: 16px;
+
+                margin-bottom: 30px;
+            }
+
+
+            .project-description {
+
+                font-size: 15px;
+
+                line-height: 1.8;
+            }
+
+
+            .project-btn {
+
+                width: 100%;
+            }
+
         }
 
     </style>
@@ -110,83 +332,126 @@
 <body>
 
 
-    <header class="navbar">
-
-        <div class="nav-container">
-
-            <a href="../index.html" class="logo">
-                YEASIR<span>.</span>
-            </a>
-
-            <a
-                href="../index.html"
-                style="
-                    color:#dbeeff;
-                    text-decoration:none;
-                    font-size:12px;
-                    text-transform:uppercase;
-                    letter-spacing:1px;
-                "
-            >
-                ← Back to Home
-            </a>
-
-        </div>
-
-    </header>
-
+    <!-- =========================================
+         PROJECT 01
+    ========================================== -->
 
     <main class="project-page">
 
+
         <div class="project-container">
 
+
+            <!-- PROJECT NUMBER -->
+
             <div class="project-number">
+
                 PROJECT 01
+
             </div>
+
+
+            <!-- PROJECT TITLE -->
 
             <h1 class="project-title">
-                Communication<br>
-                Research
+
+                Communication Research
+
             </h1>
 
-            <div class="project-subtitle">
+
+            <!-- PROJECT TYPE -->
+
+            <div class="project-type">
+
                 Research Proposal
-            </div>
-
-            <div class="project-line"></div>
-
-
-            <div class="project-card">
-
-                <h2>
-                    Communication Research
-                </h2>
-
-                <p>
-                    A research proposal developed as part of
-                    academic coursework in communication and
-                    media studies.
-                </p>
-
-                <p>
-                    This project focuses on the research process,
-                    communication concepts, methodology and
-                    academic investigation.
-                </p>
-
-                <!-- PDF / PROJECT FILE WILL BE ADDED HERE LATER -->
 
             </div>
 
+
+            <!-- =================================
+                 PROJECT COVER
+            ================================== -->
+
+            <div class="project-cover">
+
+                <img
+                    src="../assets/images/projects/project-01.jpg"
+                    alt="Communication Research — Research Proposal"
+                >
+
+            </div>
+
+
+            <!-- =================================
+                 DESCRIPTION
+            ================================== -->
+
+            <p class="project-description">
+
+                A research proposal developed as part of academic
+                coursework in communication and media studies.
+
+                This project focuses on the research process,
+                communication concepts, methodology and academic
+                investigation.
+
+            </p>
+
+
+            <!-- =================================
+                 PROJECT BUTTONS
+            ================================== -->
+
+            <div class="project-actions">
+
+
+                <!-- VIEW PDF -->
+
+                <a
+                    href="../assets/pdf/project-01.pdf"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="project-btn project-btn-primary"
+                >
+
+                    View PDF ↗
+
+                </a>
+
+
+                <!-- DOWNLOAD PDF -->
+
+                <a
+                    href="../assets/pdf/project-01.pdf"
+                    download
+                    class="project-btn project-btn-secondary"
+                >
+
+                    Download PDF
+
+                </a>
+
+
+            </div>
+
+
+            <!-- =================================
+                 BACK
+            ================================== -->
 
             <a
                 href="../index.html"
-                class="back-button"
+                class="back-projects"
             >
+
                 ← Back to Projects
+
             </a>
 
+
         </div>
+
 
     </main>
 
