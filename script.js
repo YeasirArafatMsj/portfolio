@@ -1,243 +1,214 @@
 /* =========================================================
    YEASIR ARAFAT — HOME PAGE MASTER SCRIPT
-   ========================================================= */
+   Slider + Dots + Auto Slide + Button Effects + Reveal
+========================================================= */
 
 document.addEventListener("DOMContentLoaded", () => {
 
     /* =====================================================
-       NAVBAR — SCROLL EFFECT
+       HERO / FEATURED SLIDER
     ===================================================== */
 
-    const navbar = document.querySelector(".navbar");
+    const slides = document.querySelectorAll(".hero-slide");
+    const dots = document.querySelectorAll(".hero-dot");
 
-    const handleNavbar = () => {
+    let currentSlide = 0;
+    let slideTimer;
 
-        if (!navbar) return;
 
-        if (window.scrollY > 40) {
-            navbar.classList.add("scrolled");
-        } else {
-            navbar.classList.remove("scrolled");
+    function showSlide(index) {
+
+        if (!slides.length) return;
+
+        currentSlide = index;
+
+        slides.forEach((slide, i) => {
+
+            slide.classList.toggle(
+                "active",
+                i === currentSlide
+            );
+
+        });
+
+
+        dots.forEach((dot, i) => {
+
+            dot.classList.toggle(
+                "active",
+                i === currentSlide
+            );
+
+        });
+
+    }
+
+
+    function nextSlide() {
+
+        if (!slides.length) return;
+
+        currentSlide =
+            (currentSlide + 1) % slides.length;
+
+        showSlide(currentSlide);
+
+    }
+
+
+    function startSlider() {
+
+        clearInterval(slideTimer);
+
+        if (slides.length > 1) {
+
+            slideTimer = setInterval(
+                nextSlide,
+                6000
+            );
+
         }
 
-    };
-
-    window.addEventListener("scroll", handleNavbar);
-    handleNavbar();
+    }
 
 
-    /* =====================================================
-       MOBILE MENU
-    ===================================================== */
+    /* DOT CLICK */
 
-    const menuToggle = document.querySelector(".menu-toggle");
-    const navMenu = document.querySelector(".nav-menu");
+    dots.forEach((dot, index) => {
 
-    if (menuToggle && navMenu) {
+        dot.addEventListener("click", () => {
 
-        menuToggle.addEventListener("click", () => {
+            showSlide(index);
 
-            navMenu.classList.toggle("mobile-open");
-
-            menuToggle.classList.toggle("active");
-
-            if (navMenu.classList.contains("mobile-open")) {
-                menuToggle.innerHTML = "✕";
-            } else {
-                menuToggle.innerHTML = "☰";
-            }
+            startSlider();
 
         });
 
+    });
 
-        /* Close menu after clicking a link */
 
-        navMenu.querySelectorAll("a").forEach(link => {
+    /* INITIAL SLIDE */
 
-            link.addEventListener("click", () => {
+    if (slides.length) {
 
-                navMenu.classList.remove("mobile-open");
+        showSlide(0);
 
-                menuToggle.classList.remove("active");
-
-                menuToggle.innerHTML = "☰";
-
-            });
-
-        });
+        startSlider();
 
     }
 
 
     /* =====================================================
-       HERO MOUSE PARALLAX
+       SLIDER TOUCH / SWIPE SUPPORT
     ===================================================== */
 
-    const hero = document.querySelector(".hero");
-    const heroBackground = document.querySelector(".hero-background");
-    const heroContent = document.querySelector(".hero-content");
+    const slider =
+        document.querySelector(".hero-slider");
 
-    if (hero && heroBackground) {
-
-        hero.addEventListener("mousemove", (event) => {
-
-            const rect = hero.getBoundingClientRect();
-
-            const x =
-                (event.clientX - rect.left) / rect.width - 0.5;
-
-            const y =
-                (event.clientY - rect.top) / rect.height - 0.5;
+    let touchStartX = 0;
+    let touchEndX = 0;
 
 
-            heroBackground.style.transform =
-                `scale(1.08) translate(${x * -10}px, ${y * -10}px)`;
+    if (slider) {
+
+        slider.addEventListener(
+            "touchstart",
+            (event) => {
+
+                touchStartX =
+                    event.changedTouches[0].screenX;
+
+            },
+            { passive: true }
+        );
 
 
-            if (heroContent) {
+        slider.addEventListener(
+            "touchend",
+            (event) => {
 
-                heroContent.style.transform =
-                    `translate(${x * 4}px, ${y * 4}px)`;
+                touchEndX =
+                    event.changedTouches[0].screenX;
 
-            }
-
-        });
-
-
-        hero.addEventListener("mouseleave", () => {
-
-            heroBackground.style.transform =
-                "scale(1.05) translate(0, 0)";
-
-            if (heroContent) {
-                heroContent.style.transform =
-                    "translate(0, 0)";
-            }
-
-        });
-
-    }
+                const difference =
+                    touchStartX - touchEndX;
 
 
-    /* =====================================================
-       HERO BACKGROUND SLIDER
-       ULAB → JOURNALISM → BUSINESS → TRAVEL
-    ===================================================== */
-
-    const heroSlides = [
-        "assets/images/journey/ulab.jpg",
-        "assets/images/journalism/journalism-bg.jpg",
-        "assets/images/business/business-bg.jpg",
-        "assets/images/travel/travel-bg.jpg"
-    ];
-
-    let currentHeroSlide = 0;
-
-    if (heroBackground && heroSlides.length > 1) {
-
-        const changeHeroBackground = () => {
-
-            heroBackground.classList.add("hero-changing");
-
-            setTimeout(() => {
-
-                currentHeroSlide =
-                    (currentHeroSlide + 1) %
-                    heroSlides.length;
-
-                heroBackground.style.backgroundImage =
-                    `url("${heroSlides[currentHeroSlide]}")`;
-
-                heroBackground.classList.remove(
-                    "hero-changing"
-                );
-
-            }, 600);
-
-        };
+                if (Math.abs(difference) < 50) {
+                    return;
+                }
 
 
-        /* Keep ULAB as first image */
+                if (difference > 0) {
 
-        heroBackground.style.backgroundImage =
-            `url("${heroSlides[0]}")`;
+                    nextSlide();
+
+                } else {
+
+                    currentSlide =
+                        (currentSlide - 1 + slides.length)
+                        % slides.length;
+
+                    showSlide(currentSlide);
+
+                }
 
 
-        setInterval(
-            changeHeroBackground,
-            7000
+                startSlider();
+
+            },
+            { passive: true }
         );
 
     }
 
 
     /* =====================================================
-       IMAGE / SECTION SLIDER
-       For Home Page 4 Visual Sections
+       BUTTON RIPPLE EFFECT
     ===================================================== */
 
-    const visualSlider =
-        document.querySelector(".visual-slider");
-
-    if (visualSlider) {
-
-        const slides =
-            visualSlider.querySelectorAll(".visual-slide");
-
-        const dots =
-            document.querySelectorAll(".visual-dot");
-
-        let activeSlide = 0;
-
-        const showSlide = (index) => {
-
-            if (!slides.length) return;
-
-            slides.forEach((slide, i) => {
-
-                slide.classList.toggle(
-                    "active",
-                    i === index
-                );
-
-            });
-
-            dots.forEach((dot, i) => {
-
-                dot.classList.toggle(
-                    "active",
-                    i === index
-                );
-
-            });
-
-        };
+    const buttons =
+        document.querySelectorAll(
+            ".btn, .portfolio-button, .about-button, .business-button, .travel-button, .contact-button, .more-button"
+        );
 
 
-        dots.forEach((dot, index) => {
+    buttons.forEach((button) => {
 
-            dot.addEventListener("click", () => {
+        button.addEventListener(
+            "click",
+            function (event) {
 
-                activeSlide = index;
+                const ripple =
+                    document.createElement("span");
 
-                showSlide(activeSlide);
-
-            });
-
-        });
+                ripple.classList.add("button-ripple");
 
 
-        setInterval(() => {
+                const rect =
+                    this.getBoundingClientRect();
 
-            activeSlide =
-                (activeSlide + 1) %
-                slides.length;
 
-            showSlide(activeSlide);
+                ripple.style.left =
+                    `${event.clientX - rect.left}px`;
 
-        }, 6500);
+                ripple.style.top =
+                    `${event.clientY - rect.top}px`;
 
-    }
+
+                this.appendChild(ripple);
+
+
+                setTimeout(() => {
+
+                    ripple.remove();
+
+                }, 700);
+
+            }
+        );
+
+    });
 
 
     /* =====================================================
@@ -252,16 +223,16 @@ document.addEventListener("DOMContentLoaded", () => {
 
     if ("IntersectionObserver" in window) {
 
-        const revealObserver =
+        const observer =
             new IntersectionObserver(
-                (entries, observer) => {
+                (entries) => {
 
-                    entries.forEach(entry => {
+                    entries.forEach((entry) => {
 
                         if (entry.isIntersecting) {
 
                             entry.target.classList.add(
-                                "is-visible"
+                                "revealed"
                             );
 
                             observer.unobserve(
@@ -274,25 +245,22 @@ document.addEventListener("DOMContentLoaded", () => {
 
                 },
                 {
-                    threshold: 0.12,
-                    rootMargin: "0px 0px -50px 0px"
+                    threshold: 0.12
                 }
             );
 
 
-        revealElements.forEach(element => {
+        revealElements.forEach((element) => {
 
-            element.classList.add("reveal-ready");
-
-            revealObserver.observe(element);
+            observer.observe(element);
 
         });
 
     } else {
 
-        revealElements.forEach(element => {
+        revealElements.forEach((element) => {
 
-            element.classList.add("is-visible");
+            element.classList.add("revealed");
 
         });
 
@@ -300,53 +268,115 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
     /* =====================================================
-       PROJECT ROW PARALLAX
+       IMAGE PARALLAX
     ===================================================== */
 
-    const projectRows =
-        document.querySelectorAll(".project-row");
+    const parallaxImages =
+        document.querySelectorAll(
+            ".project-image img, .about-image img, .business-image img, .travel-image img"
+        );
 
 
-    projectRows.forEach(row => {
+    window.addEventListener(
+        "scroll",
+        () => {
 
-        const image =
-            row.querySelector(
-                ".project-image img"
-            );
-
-
-        if (!image) return;
+            const scrollY =
+                window.scrollY;
 
 
-        row.addEventListener(
-            "mousemove",
-            (event) => {
+            parallaxImages.forEach((image) => {
 
                 const rect =
-                    row.getBoundingClientRect();
+                    image.getBoundingClientRect();
 
-                const x =
-                    (event.clientX - rect.left) /
-                    rect.width - 0.5;
 
-                const y =
-                    (event.clientY - rect.top) /
-                    rect.height - 0.5;
+                if (
+                    rect.bottom < 0 ||
+                    rect.top > window.innerHeight
+                ) {
+                    return;
+                }
+
+
+                const movement =
+                    (window.innerHeight / 2 -
+                        (rect.top + rect.height / 2))
+                    * 0.025;
 
 
                 image.style.transform =
-                    `scale(1.04) translate(${x * 8}px, ${y * 8}px)`;
+                    `translateY(${movement}px) scale(1.04)`;
+
+            });
+
+        },
+        { passive: true }
+    );
+
+
+    /* =====================================================
+       CARD MOUSE TILT
+    ===================================================== */
+
+    const cards =
+        document.querySelectorAll(
+            ".project-row, .business-card, .travel-card"
+        );
+
+
+    cards.forEach((card) => {
+
+        card.addEventListener(
+            "mousemove",
+            (event) => {
+
+                if (window.innerWidth < 850) {
+                    return;
+                }
+
+
+                const rect =
+                    card.getBoundingClientRect();
+
+
+                const x =
+                    event.clientX - rect.left;
+
+                const y =
+                    event.clientY - rect.top;
+
+
+                const centerX =
+                    rect.width / 2;
+
+                const centerY =
+                    rect.height / 2;
+
+
+                const rotateX =
+                    (y - centerY) / 35;
+
+                const rotateY =
+                    (centerX - x) / 35;
+
+
+                card.style.transform =
+                    `perspective(1000px)
+                     rotateX(${rotateX}deg)
+                     rotateY(${rotateY}deg)
+                     translateY(-4px)`;
 
             }
         );
 
 
-        row.addEventListener(
+        card.addEventListener(
             "mouseleave",
             () => {
 
-                image.style.transform =
-                    "scale(1) translate(0, 0)";
+                card.style.transform =
+                    "";
 
             }
         );
@@ -355,362 +385,16 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
     /* =====================================================
-       PROJECT IMAGE HOVER
-    ===================================================== */
-
-    document
-        .querySelectorAll(".project-image")
-        .forEach(imageBox => {
-
-            imageBox.addEventListener(
-                "mouseenter",
-                () => {
-
-                    imageBox.classList.add(
-                        "image-hover"
-                    );
-
-                }
-            );
-
-
-            imageBox.addEventListener(
-                "mouseleave",
-                () => {
-
-                    imageBox.classList.remove(
-                        "image-hover"
-                    );
-
-                }
-            );
-
-        });
-
-
-    /* =====================================================
-       BUSINESS / TRAVEL IMAGE EFFECT
-    ===================================================== */
-
-    document
-        .querySelectorAll(
-            ".business-image, .travel-image, .story-image"
-        )
-        .forEach(imageBox => {
-
-            imageBox.addEventListener(
-                "mousemove",
-                event => {
-
-                    const rect =
-                        imageBox.getBoundingClientRect();
-
-                    const x =
-                        (event.clientX - rect.left) /
-                        rect.width - 0.5;
-
-                    const y =
-                        (event.clientY - rect.top) /
-                        rect.height - 0.5;
-
-
-                    const image =
-                        imageBox.querySelector("img");
-
-
-                    if (image) {
-
-                        image.style.transform =
-                            `scale(1.05) translate(${x * 7}px, ${y * 7}px)`;
-
-                    }
-
-                }
-            );
-
-
-            imageBox.addEventListener(
-                "mouseleave",
-                () => {
-
-                    const image =
-                        imageBox.querySelector("img");
-
-
-                    if (image) {
-
-                        image.style.transform =
-                            "scale(1) translate(0, 0)";
-
-                    }
-
-                }
-            );
-
-        });
-
-
-    /* =====================================================
-       COUNTER ANIMATION
-       Works for elements with data-count
-    ===================================================== */
-
-    const counters =
-        document.querySelectorAll(
-            "[data-count]"
-        );
-
-
-    if (counters.length) {
-
-        const counterObserver =
-            new IntersectionObserver(
-                entries => {
-
-                    entries.forEach(entry => {
-
-                        if (!entry.isIntersecting) return;
-
-                        const counter =
-                            entry.target;
-
-                        const target =
-                            Number(
-                                counter.dataset.count
-                            );
-
-                        const duration = 1600;
-
-                        const startTime =
-                            performance.now();
-
-
-                        const updateCounter =
-                            currentTime => {
-
-                                const progress =
-                                    Math.min(
-                                        (currentTime - startTime) /
-                                        duration,
-                                        1
-                                    );
-
-
-                                const eased =
-                                    1 -
-                                    Math.pow(
-                                        1 - progress,
-                                        3
-                                    );
-
-
-                                counter.textContent =
-                                    Math.floor(
-                                        target * eased
-                                    );
-
-
-                                if (progress < 1) {
-
-                                    requestAnimationFrame(
-                                        updateCounter
-                                    );
-
-                                } else {
-
-                                    counter.textContent =
-                                        target;
-
-                                }
-
-                            };
-
-
-                        requestAnimationFrame(
-                            updateCounter
-                        );
-
-
-                        counterObserver.unobserve(
-                            counter
-                        );
-
-                    });
-
-                },
-                {
-                    threshold: 0.5
-                }
-            );
-
-
-        counters.forEach(counter => {
-
-            counterObserver.observe(counter);
-
-        });
-
-    }
-
-
-    /* =====================================================
-       MAGNETIC BUTTON EFFECT
-    ===================================================== */
-
-    document
-        .querySelectorAll(
-            ".btn, .portfolio-button, .about-button, .business-button, .travel-button, .contact-button"
-        )
-        .forEach(button => {
-
-            button.addEventListener(
-                "mousemove",
-                event => {
-
-                    const rect =
-                        button.getBoundingClientRect();
-
-                    const x =
-                        event.clientX -
-                        rect.left -
-                        rect.width / 2;
-
-                    const y =
-                        event.clientY -
-                        rect.top -
-                        rect.height / 2;
-
-
-                    button.style.transform =
-                        `translate(${x * 0.08}px, ${y * 0.08}px)`;
-
-                }
-            );
-
-
-            button.addEventListener(
-                "mouseleave",
-                () => {
-
-                    button.style.transform =
-                        "";
-
-                }
-            );
-
-        });
-
-
-    /* =====================================================
-       SEARCH
-    ===================================================== */
-
-    const searchInput =
-        document.querySelector(
-            ".nav-search input"
-        );
-
-
-    if (searchInput) {
-
-        searchInput.addEventListener(
-            "keydown",
-            event => {
-
-                if (event.key !== "Enter") return;
-
-                const query =
-                    searchInput.value
-                        .trim()
-                        .toLowerCase();
-
-
-                if (!query) return;
-
-
-                const searchableElements =
-                    document.querySelectorAll(
-                        "h1, h2, h3, h4, p, a"
-                    );
-
-
-                let found = null;
-
-
-                searchableElements.forEach(element => {
-
-                    if (found) return;
-
-                    if (
-                        element.textContent
-                            .toLowerCase()
-                            .includes(query)
-                    ) {
-
-                        found = element;
-
-                    }
-
-                });
-
-
-                if (found) {
-
-                    found.scrollIntoView({
-                        behavior: "smooth",
-                        block: "center"
-                    });
-
-
-                    found.classList.add(
-                        "search-highlight"
-                    );
-
-
-                    setTimeout(() => {
-
-                        found.classList.remove(
-                            "search-highlight"
-                        );
-
-                    }, 1800);
-
-                } else {
-
-                    searchInput.classList.add(
-                        "search-no-result"
-                    );
-
-
-                    setTimeout(() => {
-
-                        searchInput.classList.remove(
-                            "search-no-result"
-                        );
-
-                    }, 1000);
-
-                }
-
-            }
-        );
-
-    }
-
-
-    /* =====================================================
        SMOOTH ANCHOR SCROLL
     ===================================================== */
 
     document
-        .querySelectorAll(
-            'a[href^="#"]'
-        )
-        .forEach(link => {
+        .querySelectorAll('a[href^="#"]')
+        .forEach((link) => {
 
             link.addEventListener(
                 "click",
-                event => {
+                (event) => {
 
                     const targetId =
                         link.getAttribute("href");
@@ -719,41 +403,26 @@ document.addEventListener("DOMContentLoaded", () => {
                     if (
                         !targetId ||
                         targetId === "#"
-                    ) return;
+                    ) {
+                        return;
+                    }
 
 
                     const target =
-                        document.querySelector(
-                            targetId
-                        );
+                        document.querySelector(targetId);
 
 
-                    if (!target) return;
+                    if (!target) {
+                        return;
+                    }
 
 
                     event.preventDefault();
 
 
-                    const navbarHeight =
-                        navbar
-                            ? navbar.offsetHeight
-                            : 0;
-
-
-                    const targetPosition =
-                        target.getBoundingClientRect()
-                            .top +
-                        window.scrollY -
-                        navbarHeight -
-                        20;
-
-
-                    window.scrollTo({
-
-                        top: targetPosition,
-
-                        behavior: "smooth"
-
+                    target.scrollIntoView({
+                        behavior: "smooth",
+                        block: "start"
                     });
 
                 }
@@ -763,148 +432,244 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
     /* =====================================================
-       CURSOR GLOW
+       ACTIVE NAVIGATION ON SCROLL
     ===================================================== */
 
-    const cursorGlow =
-        document.createElement("div");
-
-    cursorGlow.className =
-        "cursor-glow";
-
-    document.body.appendChild(
-        cursorGlow
-    );
-
-
-    let cursorX = 0;
-    let cursorY = 0;
-
-    let glowX = 0;
-    let glowY = 0;
-
-
-    document.addEventListener(
-        "mousemove",
-        event => {
-
-            cursorX = event.clientX;
-            cursorY = event.clientY;
-
-        }
-    );
-
-
-    const animateCursor = () => {
-
-        glowX +=
-            (cursorX - glowX) * 0.12;
-
-        glowY +=
-            (cursorY - glowY) * 0.12;
-
-
-        cursorGlow.style.transform =
-            `translate3d(${glowX}px, ${glowY}px, 0)`;
-
-
-        requestAnimationFrame(
-            animateCursor
-        );
-
-    };
-
-
-    animateCursor();
-
-
-    /* =====================================================
-       CURSOR HOVER STATES
-    ===================================================== */
-
-    document
-        .querySelectorAll(
-            "a, button, .project-card, .project-image"
-        )
-        .forEach(element => {
-
-            element.addEventListener(
-                "mouseenter",
-                () => {
-
-                    document.body.classList.add(
-                        "cursor-hover"
-                    );
-
-                }
-            );
-
-
-            element.addEventListener(
-                "mouseleave",
-                () => {
-
-                    document.body.classList.remove(
-                        "cursor-hover"
-                    );
-
-                }
-            );
-
-        });
-
-
-    /* =====================================================
-       CONTACT FORM — FRONT-END FEEDBACK
-    ===================================================== */
-
-    const contactForm =
-        document.querySelector(
-            ".contact-form"
+    const sections =
+        document.querySelectorAll(
+            "section[id]"
         );
 
 
-    if (contactForm) {
-
-        contactForm.addEventListener(
-            "submit",
-            event => {
-
-                event.preventDefault();
+    const navLinks =
+        document.querySelectorAll(
+            ".nav-menu a"
+        );
 
 
-                const button =
-                    contactForm.querySelector(
-                        "button[type='submit']"
+    if (sections.length && navLinks.length) {
+
+        window.addEventListener(
+            "scroll",
+            () => {
+
+                let currentSection = "";
+
+
+                sections.forEach((section) => {
+
+                    const sectionTop =
+                        section.offsetTop - 180;
+
+
+                    if (
+                        window.scrollY >= sectionTop
+                    ) {
+
+                        currentSection =
+                            section.getAttribute("id");
+
+                    }
+
+                });
+
+
+                navLinks.forEach((link) => {
+
+                    link.classList.remove(
+                        "active"
                     );
 
 
-                if (!button) return;
+                    const href =
+                        link.getAttribute("href");
 
 
-                const originalText =
-                    button.textContent;
+                    if (
+                        href &&
+                        href === `#${currentSection}`
+                    ) {
+
+                        link.classList.add(
+                            "active"
+                        );
+
+                    }
+
+                });
+
+            },
+            { passive: true }
+        );
+
+    }
 
 
-                button.textContent =
-                    "MESSAGE READY";
+    /* =====================================================
+       MOBILE MENU
+    ===================================================== */
+
+    const menuToggle =
+        document.querySelector(".menu-toggle");
+
+    const mobileMenu =
+        document.querySelector(".nav-menu");
 
 
-                button.classList.add(
-                    "form-success"
+    if (menuToggle && mobileMenu) {
+
+        menuToggle.addEventListener(
+            "click",
+            () => {
+
+                mobileMenu.classList.toggle(
+                    "mobile-open"
                 );
 
 
-                setTimeout(() => {
+                menuToggle.classList.toggle(
+                    "active"
+                );
 
-                    button.textContent =
-                        originalText;
+            }
+        );
 
-                    button.classList.remove(
-                        "form-success"
-                    );
 
-                }, 2200);
+        mobileMenu
+            .querySelectorAll("a")
+            .forEach((link) => {
+
+                link.addEventListener(
+                    "click",
+                    () => {
+
+                        mobileMenu.classList.remove(
+                            "mobile-open"
+                        );
+
+                        menuToggle.classList.remove(
+                            "active"
+                        );
+
+                    }
+                );
+
+            });
+
+    }
+
+
+    /* =====================================================
+       BUTTON HOVER GLOW
+    ===================================================== */
+
+    buttons.forEach((button) => {
+
+        button.addEventListener(
+            "mouseenter",
+            () => {
+
+                button.style.setProperty(
+                    "--mouse-x",
+                    "50%"
+                );
+
+                button.style.setProperty(
+                    "--mouse-y",
+                    "50%"
+                );
+
+            }
+        );
+
+
+        button.addEventListener(
+            "mousemove",
+            (event) => {
+
+                const rect =
+                    button.getBoundingClientRect();
+
+
+                const x =
+                    ((event.clientX - rect.left)
+                        / rect.width) * 100;
+
+                const y =
+                    ((event.clientY - rect.top)
+                        / rect.height) * 100;
+
+
+                button.style.setProperty(
+                    "--mouse-x",
+                    `${x}%`
+                );
+
+                button.style.setProperty(
+                    "--mouse-y",
+                    `${y}%`
+                );
+
+            }
+        );
+
+    });
+
+
+    /* =====================================================
+       BACKGROUND MOUSE MOVEMENT
+    ===================================================== */
+
+    const hero =
+        document.querySelector(".hero");
+
+    const heroBackground =
+        document.querySelector(
+            ".hero-background"
+        );
+
+
+    if (hero && heroBackground) {
+
+        hero.addEventListener(
+            "mousemove",
+            (event) => {
+
+                if (window.innerWidth < 850) {
+                    return;
+                }
+
+
+                const rect =
+                    hero.getBoundingClientRect();
+
+
+                const x =
+                    (event.clientX - rect.left)
+                    / rect.width
+                    - 0.5;
+
+
+                const y =
+                    (event.clientY - rect.top)
+                    / rect.height
+                    - 0.5;
+
+
+                heroBackground.style.transform =
+                    `scale(1.08)
+                     translate(${x * -12}px, ${y * -12}px)`;
+
+            }
+        );
+
+
+        hero.addEventListener(
+            "mouseleave",
+            () => {
+
+                heroBackground.style.transform =
+                    "scale(1.08)";
 
             }
         );
@@ -913,39 +678,61 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
     /* =====================================================
-       IMAGE LOAD FADE
+       CURSOR GLOW
     ===================================================== */
 
-    document
-        .querySelectorAll("img")
-        .forEach(img => {
+    const cursorGlow =
+        document.querySelector(
+            ".cursor-glow"
+        );
 
-            if (img.complete) {
 
-                img.classList.add(
-                    "image-loaded"
-                );
+    if (cursorGlow) {
 
-            } else {
+        document.addEventListener(
+            "mousemove",
+            (event) => {
 
-                img.addEventListener(
-                    "load",
-                    () => {
+                cursorGlow.style.left =
+                    `${event.clientX}px`;
 
-                        img.classList.add(
-                            "image-loaded"
-                        );
-
-                    }
-                );
+                cursorGlow.style.top =
+                    `${event.clientY}px`;
 
             }
+        );
 
-        });
+    }
 
 
     /* =====================================================
-       PAGE LOADED
+       PROJECT IMAGE LOAD EFFECT
+    ===================================================== */
+
+    const images =
+        document.querySelectorAll(
+            "img"
+        );
+
+
+    images.forEach((image) => {
+
+        image.addEventListener(
+            "load",
+            () => {
+
+                image.classList.add(
+                    "image-loaded"
+                );
+
+            }
+        );
+
+    });
+
+
+    /* =====================================================
+       PAGE LOAD
     ===================================================== */
 
     window.addEventListener(
@@ -958,5 +745,26 @@ document.addEventListener("DOMContentLoaded", () => {
 
         }
     );
+
+
+    /* =====================================================
+       REDUCE MOTION ACCESSIBILITY
+    ===================================================== */
+
+    const prefersReducedMotion =
+        window.matchMedia(
+            "(prefers-reduced-motion: reduce)"
+        );
+
+
+    if (prefersReducedMotion.matches) {
+
+        clearInterval(slideTimer);
+
+        document.documentElement.style
+            .scrollBehavior = "auto";
+
+    }
+
 
 });
