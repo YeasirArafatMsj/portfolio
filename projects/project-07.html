@@ -128,6 +128,22 @@
             box-shadow:
                 0 25px 70px rgba(0, 0, 0, 0.55),
                 0 0 35px rgba(33, 150, 243, 0.06);
+
+            cursor: pointer;
+
+            transition:
+                transform 0.35s ease,
+                box-shadow 0.35s ease;
+        }
+
+
+        .project-cover:hover {
+
+            transform: translateY(-5px);
+
+            box-shadow:
+                0 30px 80px rgba(0, 0, 0, 0.65),
+                0 0 40px rgba(33, 150, 243, 0.15);
         }
 
 
@@ -137,6 +153,14 @@
             width: 100%;
 
             height: auto;
+
+            transition:
+                transform 0.5s ease;
+        }
+
+
+        .project-cover:hover img {
+            transform: scale(1.025);
         }
 
 
@@ -159,7 +183,27 @@
 
             backdrop-filter: blur(15px);
 
-            margin-bottom: 35px;
+            margin-bottom: 45px;
+
+            cursor: pointer;
+
+            transition:
+                transform 0.35s ease,
+                border-color 0.35s ease,
+                box-shadow 0.35s ease;
+        }
+
+
+        .project-card:hover {
+
+            transform: translateY(-5px);
+
+            border-color:
+                rgba(144, 202, 249, 0.4);
+
+            box-shadow:
+                0 20px 60px rgba(0, 0, 0, 0.35),
+                0 0 30px rgba(33, 150, 243, 0.08);
         }
 
 
@@ -183,109 +227,56 @@
         }
 
 
-        /* ================================
-           VIDEO PLAYER
-        ================================= */
-
-        .project-video {
-            width: 100%;
-
-            max-width: 850px;
-
-            margin-bottom: 45px;
-
-            overflow: hidden;
-
-            border-radius: 16px;
-
-            border:
-                1px solid rgba(144, 202, 249, 0.18);
-
-            background: #000;
-
-            box-shadow:
-                0 25px 70px rgba(0, 0, 0, 0.55),
-                0 0 35px rgba(33, 150, 243, 0.08);
-        }
-
-
-        .project-video iframe {
-            display: block;
-
-            width: 100%;
-
-            aspect-ratio: 16 / 9;
-
-            border: none;
+        .project-card p:last-child {
+            margin-bottom: 0;
         }
 
 
         /* ================================
-           BUTTONS
+           CLICK HINT
         ================================= */
 
-        .project-actions {
-            display: flex;
+        .project-watch-hint {
 
-            flex-wrap: wrap;
-
-            gap: 15px;
-
-            margin-bottom: 45px;
-        }
-
-
-        .project-btn {
             display: inline-flex;
 
             align-items: center;
 
-            justify-content: center;
+            gap: 10px;
 
-            min-width: 180px;
+            margin-top: 25px;
 
-            padding: 14px 24px;
+            padding: 11px 17px;
 
-            color: #ffffff;
+            color: #90caf9;
 
-            text-decoration: none;
-
-            text-transform: uppercase;
-
-            letter-spacing: 1.3px;
-
-            font-size: 12px;
+            font-size: 11px;
 
             font-weight: 700;
 
-            border: none;
+            letter-spacing: 1.5px;
 
-            cursor: pointer;
+            text-transform: uppercase;
+
+            border:
+                1px solid rgba(144, 202, 249, 0.25);
+
+            background:
+                rgba(33, 150, 243, 0.06);
 
             transition:
-                transform 0.3s ease,
                 background 0.3s ease,
-                box-shadow 0.3s ease;
+                border-color 0.3s ease;
         }
 
 
-        .project-btn-primary {
-            background: #1976d2;
+        .project-card:hover .project-watch-hint {
 
-            box-shadow:
-                0 0 20px
-                rgba(33, 150, 243, 0.25);
-        }
+            background:
+                rgba(33, 150, 243, 0.12);
 
-
-        .project-btn-primary:hover {
-            transform: translateY(-3px);
-
-            background: #2196f3;
-
-            box-shadow:
-                0 0 30px
-                rgba(33, 150, 243, 0.5);
+            border-color:
+                rgba(144, 202, 249, 0.45);
         }
 
 
@@ -315,6 +306,7 @@
 
 
         .back-button:hover {
+
             color: #ffffff;
 
             border-color: #90caf9;
@@ -334,11 +326,13 @@
         @media (max-width: 600px) {
 
             .project-page {
+
                 padding: 110px 6% 60px;
             }
 
 
             .project-title {
+
                 font-size: 48px;
 
                 letter-spacing: -1px;
@@ -346,17 +340,14 @@
 
 
             .project-card {
+
                 padding: 25px;
             }
 
 
             .project-card p {
+
                 font-size: 15px;
-            }
-
-
-            .project-btn {
-                width: 100%;
             }
 
         }
@@ -438,81 +429,70 @@
 
 
             <!-- =================================
-                 PROJECT COVER
+                 CLICKABLE PROJECT COVER
             ================================== -->
 
-            <div class="project-cover">
+            <a
+                href="https://youtu.be/H42JPIrI4Cw"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="project-cover"
+                aria-label="Watch Convergence Communication II Video"
+            >
 
                 <img
                     src="project-07.jpg"
                     alt="Convergence Communication II — Video Art"
                 >
 
-            </div>
+            </a>
 
 
             <!-- =================================
-                 DESCRIPTION
+                 DESCRIPTION CARD
             ================================== -->
 
-            <div class="project-card">
+            <a
+                href="https://youtu.be/H42JPIrI4Cw"
+                target="_blank"
+                rel="noopener noreferrer"
+                style="
+                    text-decoration:none;
+                    color:inherit;
+                "
+            >
 
-                <h2>
-                    Convergence Communication II — Video Art
-                </h2>
+                <div class="project-card">
 
-
-                <p>
-                    A video art project developed for
-                    Convergence Communication II, exploring
-                    visual storytelling, digital media and
-                    creative communication through moving
-                    images.
-                </p>
-
-
-                <p>
-                    The project combines visual elements,
-                    sound, editing and conceptual storytelling
-                    to create an experimental communication
-                    experience through video art.
-                </p>
-
-            </div>
+                    <h2>
+                        Convergence Communication II — Video Art
+                    </h2>
 
 
-            <!-- =================================
-                 YOUTUBE VIDEO
-            ================================== -->
-
-            <div class="project-video">
-
-                <iframe
-                    src="https://www.youtube.com/embed/H42JPIrI4Cw"
-                    title="Mojaxiom — Video Art By Yeasir Arafat"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                    allowfullscreen>
-                </iframe>
-
-            </div>
+                    <p>
+                        A video art project developed for
+                        Convergence Communication II, exploring
+                        visual storytelling, digital media and
+                        creative communication through moving
+                        images.
+                    </p>
 
 
-            <!-- =================================
-                 VIDEO LINK
-            ================================== -->
+                    <p>
+                        The project combines visual elements,
+                        sound, editing and conceptual storytelling
+                        to create an experimental communication
+                        experience through video art.
+                    </p>
 
-            <div class="project-actions">
 
-                <a
-                    href="https://youtu.be/H42JPIrI4Cw"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    class="project-btn project-btn-primary"
-                >
-                    Open on YouTube ↗
-                </a>
+                    <div class="project-watch-hint">
+                        ▶ Click to Watch Video
+                    </div>
 
-            </div>
+                </div>
+
+            </a>
 
 
             <!-- =================================
